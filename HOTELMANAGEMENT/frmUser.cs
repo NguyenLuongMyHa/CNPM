@@ -103,7 +103,7 @@ namespace HOTELMANAGEMENT
             }
         }
         //---------------------------------------------
-        private void BtnGuestSave_Click(object sender, EventArgs e)
+        private void BtnGuestSave_Click(object sender, EventArgs e)//register guest
         {
 
             string UserFName = this.txtGuestFName.Text;
@@ -148,7 +148,7 @@ namespace HOTELMANAGEMENT
             this.Close();
         }
 
-        private void Btn_ReceptSave_Click(object sender, EventArgs e)
+        private void Btn_ReceptSave_Click(object sender, EventArgs e)// Register new Receptionist (Manager)
         {
             string UserFName = this.txtRecepFName.Text;
             string UserMName = this.txtRecepMName.Text;
@@ -229,18 +229,44 @@ namespace HOTELMANAGEMENT
             this.Close();
         }
 
-        private void Btn_EditGuestSave_Click(object sender, EventArgs e)
+        private void Btn_EditGuestSave_Click(object sender, EventArgs e)//Edit Guest
         {
-
-            string UserFName = this.txt_EditGuestFName.Text;
-            string UserMName = this.txt_EditGuestMName.Text;
-            string UserLName = this.txt_EditGuestLName.Text;
-            string UserAddress = this.txt_EditGuestAddress.Text;
-            string UserContactNumber = this.txt_EditGuestNumber.Text;
-            string UserGender = this.cbx_EditGuestGender.SelectedItem.ToString();
-            string UserEmail = this.txt_EditGuestEmail.Text;
+            string UserFName;
+            string UserMName;
+            string UserLName;
+            string UserAddress;
+            string UserContactNumber;
+            string UserGender;
+            string UserEmail;
             string Status = "Active";
             string Remarks = "Available";
+
+            if (this.txt_EditGuestFName.Text=="")
+                UserFName = public_class.user.UserFName;
+            else
+                UserFName = this.txt_EditGuestFName.Text;
+            if (this.txt_EditGuestMName.Text == "")
+                UserMName = public_class.user.UserMName;
+            else
+                UserMName = this.txt_EditGuestMName.Text;
+            if (this.txt_EditGuestLName.Text == "")
+                UserLName = public_class.user.UserLName;
+            else
+                UserLName = this.txt_EditGuestLName.Text;
+            if (this.txt_EditGuestAddress.Text == "")
+                UserAddress = public_class.user.UserAddress;
+            else
+                UserAddress = this.txt_EditGuestAddress.Text;
+            if (this.txt_EditGuestNumber.Text == "")
+                UserContactNumber = public_class.user.UserContactNumber;
+            else
+                UserContactNumber = this.txt_EditGuestNumber.Text;
+            if (this.txt_EditGuestEmail.Text == "")
+                UserEmail = public_class.user.UserEmail;
+            else
+                UserEmail = this.txt_EditGuestEmail.Text;
+            UserGender = this.cbx_EditGuestGender.SelectedItem.ToString();
+
             string Password = this.txt_EditGuestPassword.Text;
             string Username = public_class.user.UserName;
             int ID = public_class.user.ID;
