@@ -59,8 +59,50 @@ namespace HOTELMANAGEMENT
                 MessageBox.Show("Get User Data Failed");
                 
             }
+        }        
+        //---------------------------------------------
+        private void RolePermission(string role)
+        {
+            //Guest register
+            if (public_class.role == "Guest" && public_class.islogin == false)
+            {
+                TabControl1.TabPages.Remove(TabPageGuestList);
+                TabControl1.TabPages.Remove(tabPageGuestEdit);
+                TabControl1.TabPages.Remove(tabPageNewReceptionist);
+                TabControl1.TabPages.Remove(tabPageReceptionistList);
+                TabControl1.TabPages.Remove(tabPageEditReceptionist);
+
+            }
+            //Guest edit info
+            if (public_class.role == "Guest" && public_class.islogin == true)
+            {
+                TabControl1.TabPages.Remove(TabPageGuestList);
+                TabControl1.TabPages.Remove(TabPageNewGuest);
+                TabControl1.TabPages.Remove(tabPageNewReceptionist);
+                TabControl1.TabPages.Remove(tabPageReceptionistList);
+                TabControl1.TabPages.Remove(tabPageEditReceptionist);
+                this.lblSelectGuest.Visible = false;
+                this.btnEditGuestSelect.Visible = false;
+            }
+            //Receptionist add guest, view list guest
+
+            if (public_class.role == "Receptionist" && public_class.islogin == true)
+            {
+                txt_EditGuestPassword.Visible = false;
+                lblEditGuestPass.Visible = false;
+                lbl_SelectEditRecep.Visible = false;
+                btn_EditSelectReceptionist.Visible = false;
+                TabControl1.TabPages.Remove(tabPageReceptionistList);
+                TabControl1.TabPages.Remove(tabPageNewReceptionist);
+            }
+
+            if(public_class.role == "Manager" && public_class.islogin == true)
+            {
+                lblEditGuestPass.Visible = false;
+                this.txt_EditGuestPassword.Visible = false;
+            }
         }
-        //Guest register
+        //---------------------------------------------
         private void BtnGuestSave_Click(object sender, EventArgs e)
         {
 
@@ -106,6 +148,65 @@ namespace HOTELMANAGEMENT
             this.Close();
         }
 
+        private void Btn_ReceptSave_Click(object sender, EventArgs e)
+        {
+            string UserFName = this.txtRecepFName.Text;
+            string UserMName = this.txtRecepMName.Text;
+            string UserLName = this.txtRecepLname.Text;
+            string UserAddress = this.txtRecepAddress.Text;
+            string UserContactNumber = this.txtRecepNumber.Text;
+            string UserGender = this.cbx_ReceptGender.SelectedItem.ToString();
+            string UserEmail = this.txtRecepEmail.Text;
+            string Status = "Active";
+            string Remarks = "Available";
+            string UserName = this.txt_RecepUserName.Text;
+            string Password = this.txt_ReceptPassword.Text;
+
+            try
+            {
+                if (dbLogin.FindUserName(UserName) == true)
+                {
+                    MessageBox.Show("Receptionist Username already exists." + Environment.NewLine + "Please enter another Username!");
+                }
+                else
+                {
+                    LoadData();
+                    int ID = dbUser.AutoGenerateID(dtUser);
+
+                    dbLogin.AddUser(UserName, Password, "Receptionist", ref err);
+                    dbUser.AddUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, UserName, ref err);
+                    MessageBox.Show("Registered!");
+                    LoadData();
+
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Register Failed");
+            }
+
+        }
+
+        
+        private void btn_SelectGuest_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmSelectGuest guest = new frmSelectGuest();
+            guest.ShowDialog();
+            this.Show();
+            if(public_class.guestSelected != null && public_class.isGuestSelected==true)
+            {
+                this.txt_EditGuestFName.Text = public_class.guestSelected.UserFName;
+                this.txt_EditGuestMName.Text = public_class.guestSelected.UserMName;
+                this.txt_EditGuestLName.Text = public_class.guestSelected.UserLName;
+                this.txt_EditGuestEmail.Text = public_class.guestSelected.UserEmail;
+                this.txt_EditGuestAddress.Text = public_class.guestSelected.UserAddress;
+                this.txt_EditGuestNumber.Text = public_class.guestSelected.UserContactNumber;
+                public_class.isGuestSelected = false;
+            }
+        }
+
         private void Btn_ReceptCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -118,47 +219,50 @@ namespace HOTELMANAGEMENT
         {
             this.Close();
         }
-        //---------------------------------------------
-        private void RolePermission(string role)
+        private void Btn_RecepListCancel_Click(object sender, EventArgs e)
         {
-            //Guest register
-            if (public_class.role == "Guest" && public_class.islogin == false)
-            {
-                TabControl1.TabPages.Remove(TabPageGuestList);
-                TabControl1.TabPages.Remove(tabPageGuestEdit);
-                TabControl1.TabPages.Remove(tabPageNewReceptionist);
-                TabControl1.TabPages.Remove(tabPageReceptionistList);
-                TabControl1.TabPages.Remove(tabPageEditReceptionist);
-
-            }
-            //Guest edit info
-            if (public_class.role == "Guest" && public_class.islogin == true)
-            {
-                TabControl1.TabPages.Remove(TabPageGuestList);
-                TabControl1.TabPages.Remove(TabPageNewGuest);
-                TabControl1.TabPages.Remove(tabPageNewReceptionist);
-                TabControl1.TabPages.Remove(tabPageReceptionistList);
-                TabControl1.TabPages.Remove(tabPageEditReceptionist);
-                this.lblSelectGuest.Visible = false;
-                this.btnEditGuestSelect.Visible = false;
-            }
-            //Receptionist add guest, view list guest
-
-            if (public_class.role == "Receptionist" && public_class.islogin == true)
-            {
-                txt_EditGuestPassword.Visible = false;
-                lblEditGuestPass.Visible = false;
-                TabControl1.TabPages.Remove(tabPageReceptionistList);
-                TabControl1.TabPages.Remove(tabPageNewReceptionist);
-            }
+            this.Close();
         }
 
-        private void btn_SelectGuest_Click(object sender, EventArgs e)
+        private void Btn_GuestListCancel_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmSelectGuest guest = new frmSelectGuest();
-            guest.ShowDialog();
-            this.Show();
+            this.Close();
+        }
+
+        private void Btn_EditGuestSave_Click(object sender, EventArgs e)
+        {
+
+            string UserFName = this.txt_EditGuestFName.Text;
+            string UserMName = this.txt_EditGuestMName.Text;
+            string UserLName = this.txt_EditGuestLName.Text;
+            string UserAddress = this.txt_EditGuestAddress.Text;
+            string UserContactNumber = this.txt_EditGuestNumber.Text;
+            string UserGender = this.cbx_EditGuestGender.SelectedItem.ToString();
+            string UserEmail = this.txt_EditGuestEmail.Text;
+            string Status = "Active";
+            string Remarks = "Available";
+            string Password = this.txt_EditGuestPassword.Text;
+            string Username = public_class.user.UserName;
+            int ID = public_class.user.ID;
+            if (public_class.role == "Receptionist"|| public_class.role == "Manager")
+            {
+                Username = public_class.guestSelected.UserName;
+                ID = public_class.guestSelected.ID;
+            }
+
+            try
+            {
+                if(public_class.role=="Guest")
+                    dbLogin.EditUser(Username, Password, "Guest", ref err);
+                dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, Username, ref err);
+                MessageBox.Show("Edited!");
+                LoadData();
+            }
+            catch
+            {
+                MessageBox.Show("Edit Failed");
+            }
+
         }
     }
 }

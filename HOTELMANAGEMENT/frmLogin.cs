@@ -49,7 +49,7 @@ namespace HOTELMANAGEMENT
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
         public bool CheckLogin(string username, string password, string role)
         {
@@ -105,7 +105,6 @@ namespace HOTELMANAGEMENT
             this.Hide();
             frmMain guest = new frmMain();
             guest.ShowDialog();
-            this.Show();
         }
         private void rbt_Receptionist_CheckedChanged(object sender, EventArgs e)
         {
@@ -124,7 +123,7 @@ namespace HOTELMANAGEMENT
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+      
         }
 
         private void Lbl_Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

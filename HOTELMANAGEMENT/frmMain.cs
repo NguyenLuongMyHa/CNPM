@@ -27,7 +27,39 @@ namespace HOTELMANAGEMENT
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            RolePermission(public_class.role);
             this.toolStripInfo.Text = public_class.role.ToUpper() + " " + public_class.user.UserFName + " " + public_class.user.UserMName + " " + public_class.user.UserLName;
+
+        }
+
+        private void RolePermission(string role)
+        {
+            if (public_class.role == "Guest"|| public_class.role == "Receptionist")
+            {
+                this.MenuStripManager.Visible = false;
+            }
+           
+        }
+
+        private void ToolBarLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Logout from application?", "Logout", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Hide();
+                frmLogin login = new frmLogin();
+                login.ShowDialog();
+            }
+
+        }
+
+        private void ToolBarExit_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Exit application?", "Exit", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

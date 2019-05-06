@@ -39,13 +39,15 @@
             this.rbt_Receptionist = new System.Windows.Forms.RadioButton();
             this.rbt_Manager = new System.Windows.Forms.RadioButton();
             this.lbl_Register = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Cancel
             // 
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Cancel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Cancel.Location = new System.Drawing.Point(126, 171);
+            this.Cancel.Location = new System.Drawing.Point(126, 246);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(94, 30);
             this.Cancel.TabIndex = 14;
@@ -55,7 +57,7 @@
             // OK
             // 
             this.OK.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.OK.Location = new System.Drawing.Point(23, 171);
+            this.OK.Location = new System.Drawing.Point(23, 246);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(94, 30);
             this.OK.TabIndex = 13;
@@ -64,7 +66,7 @@
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(14, 135);
+            this.PasswordTextBox.Location = new System.Drawing.Point(14, 210);
             this.PasswordTextBox.Multiline = true;
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
@@ -74,7 +76,7 @@
             // 
             // UsernameTextBox
             // 
-            this.UsernameTextBox.Location = new System.Drawing.Point(14, 78);
+            this.UsernameTextBox.Location = new System.Drawing.Point(14, 153);
             this.UsernameTextBox.Multiline = true;
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(220, 25);
@@ -83,8 +85,8 @@
             // PasswordLabel
             // 
             this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasswordLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.PasswordLabel.Location = new System.Drawing.Point(12, 112);
+            this.PasswordLabel.ForeColor = System.Drawing.Color.Teal;
+            this.PasswordLabel.Location = new System.Drawing.Point(12, 187);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(220, 23);
             this.PasswordLabel.TabIndex = 11;
@@ -94,8 +96,8 @@
             // UsernameLabel
             // 
             this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UsernameLabel.Location = new System.Drawing.Point(12, 55);
+            this.UsernameLabel.ForeColor = System.Drawing.Color.Teal;
+            this.UsernameLabel.Location = new System.Drawing.Point(12, 130);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(220, 23);
             this.UsernameLabel.TabIndex = 9;
@@ -105,8 +107,8 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.ForeColor = System.Drawing.Color.Teal;
+            this.label1.Location = new System.Drawing.Point(12, 84);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 23);
             this.label1.TabIndex = 15;
@@ -116,7 +118,7 @@
             // rbt_Guest
             // 
             this.rbt_Guest.AutoSize = true;
-            this.rbt_Guest.Location = new System.Drawing.Point(15, 35);
+            this.rbt_Guest.Location = new System.Drawing.Point(15, 110);
             this.rbt_Guest.Name = "rbt_Guest";
             this.rbt_Guest.Size = new System.Drawing.Size(53, 17);
             this.rbt_Guest.TabIndex = 16;
@@ -127,7 +129,7 @@
             // rbt_Receptionist
             // 
             this.rbt_Receptionist.AutoSize = true;
-            this.rbt_Receptionist.Location = new System.Drawing.Point(74, 35);
+            this.rbt_Receptionist.Location = new System.Drawing.Point(74, 110);
             this.rbt_Receptionist.Name = "rbt_Receptionist";
             this.rbt_Receptionist.Size = new System.Drawing.Size(84, 17);
             this.rbt_Receptionist.TabIndex = 17;
@@ -138,7 +140,7 @@
             // rbt_Manager
             // 
             this.rbt_Manager.AutoSize = true;
-            this.rbt_Manager.Location = new System.Drawing.Point(164, 35);
+            this.rbt_Manager.Location = new System.Drawing.Point(164, 110);
             this.rbt_Manager.Name = "rbt_Manager";
             this.rbt_Manager.Size = new System.Drawing.Size(67, 17);
             this.rbt_Manager.TabIndex = 18;
@@ -149,19 +151,46 @@
             // lbl_Register
             // 
             this.lbl_Register.AutoSize = true;
-            this.lbl_Register.Location = new System.Drawing.Point(96, 214);
+            this.lbl_Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Register.ForeColor = System.Drawing.Color.Teal;
+            this.lbl_Register.LinkColor = System.Drawing.Color.Tomato;
+            this.lbl_Register.Location = new System.Drawing.Point(96, 289);
             this.lbl_Register.Name = "lbl_Register";
-            this.lbl_Register.Size = new System.Drawing.Size(46, 13);
+            this.lbl_Register.Size = new System.Drawing.Size(59, 16);
             this.lbl_Register.TabIndex = 19;
             this.lbl_Register.TabStop = true;
             this.lbl_Register.Text = "Register";
             this.lbl_Register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Lbl_Register_LinkClicked);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Maroon;
+            this.label2.Location = new System.Drawing.Point(44, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(161, 30);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "PANDAS HOTEL";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label3.Location = new System.Drawing.Point(95, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 21);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "LOGIN";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(249, 237);
+            this.ClientSize = new System.Drawing.Size(249, 318);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lbl_Register);
             this.Controls.Add(this.rbt_Manager);
             this.Controls.Add(this.rbt_Receptionist);
@@ -173,7 +202,9 @@
             this.Controls.Add(this.UsernameTextBox);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.UsernameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
@@ -193,5 +224,7 @@
         private System.Windows.Forms.RadioButton rbt_Receptionist;
         private System.Windows.Forms.RadioButton rbt_Manager;
         private System.Windows.Forms.LinkLabel lbl_Register;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
