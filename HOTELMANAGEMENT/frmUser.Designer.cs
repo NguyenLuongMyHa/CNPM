@@ -107,7 +107,7 @@
             this.btn_EditSelectReceptionist = new System.Windows.Forms.Button();
             this.lbl_SelectEditRecep = new System.Windows.Forms.Label();
             this.txt_RecepEditPassword = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
+            this.lbl_EditRecepPass = new System.Windows.Forms.Label();
             this.btn_RecepEditCancel = new System.Windows.Forms.Button();
             this.btn_RecepEditSave = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
@@ -731,7 +731,7 @@
             this.tabPageGuestEdit.Name = "tabPageGuestEdit";
             this.tabPageGuestEdit.Size = new System.Drawing.Size(671, 398);
             this.tabPageGuestEdit.TabIndex = 4;
-            this.tabPageGuestEdit.Text = "Edit";
+            this.tabPageGuestEdit.Text = "Edit Guest Infomation";
             this.tabPageGuestEdit.UseVisualStyleBackColor = true;
             // 
             // btnEditGuestSelect
@@ -945,7 +945,7 @@
             this.tabPageEditReceptionist.Controls.Add(this.btn_EditSelectReceptionist);
             this.tabPageEditReceptionist.Controls.Add(this.lbl_SelectEditRecep);
             this.tabPageEditReceptionist.Controls.Add(this.txt_RecepEditPassword);
-            this.tabPageEditReceptionist.Controls.Add(this.label24);
+            this.tabPageEditReceptionist.Controls.Add(this.lbl_EditRecepPass);
             this.tabPageEditReceptionist.Controls.Add(this.btn_RecepEditCancel);
             this.tabPageEditReceptionist.Controls.Add(this.btn_RecepEditSave);
             this.tabPageEditReceptionist.Controls.Add(this.label33);
@@ -967,7 +967,7 @@
             this.tabPageEditReceptionist.Name = "tabPageEditReceptionist";
             this.tabPageEditReceptionist.Size = new System.Drawing.Size(671, 398);
             this.tabPageEditReceptionist.TabIndex = 5;
-            this.tabPageEditReceptionist.Text = "Edit";
+            this.tabPageEditReceptionist.Text = "Edit Receptionist Information ";
             this.tabPageEditReceptionist.UseVisualStyleBackColor = true;
             // 
             // btn_EditSelectReceptionist
@@ -980,6 +980,7 @@
             this.btn_EditSelectReceptionist.TabIndex = 126;
             this.btn_EditSelectReceptionist.Text = "...";
             this.btn_EditSelectReceptionist.UseVisualStyleBackColor = false;
+            this.btn_EditSelectReceptionist.Click += new System.EventHandler(this.Btn_EditSelectReceptionist_Click);
             // 
             // lbl_SelectEditRecep
             // 
@@ -1000,15 +1001,15 @@
             this.txt_RecepEditPassword.Size = new System.Drawing.Size(210, 25);
             this.txt_RecepEditPassword.TabIndex = 123;
             // 
-            // label24
+            // lbl_EditRecepPass
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(116, 311);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(68, 16);
-            this.label24.TabIndex = 124;
-            this.label24.Text = "Password";
+            this.lbl_EditRecepPass.AutoSize = true;
+            this.lbl_EditRecepPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_EditRecepPass.Location = new System.Drawing.Point(116, 311);
+            this.lbl_EditRecepPass.Name = "lbl_EditRecepPass";
+            this.lbl_EditRecepPass.Size = new System.Drawing.Size(68, 16);
+            this.lbl_EditRecepPass.TabIndex = 124;
+            this.lbl_EditRecepPass.Text = "Password";
             // 
             // btn_RecepEditCancel
             // 
@@ -1029,6 +1030,7 @@
             this.btn_RecepEditSave.TabIndex = 121;
             this.btn_RecepEditSave.Text = "&Save";
             this.btn_RecepEditSave.UseVisualStyleBackColor = true;
+            this.btn_RecepEditSave.Click += new System.EventHandler(this.Btn_RecepEditSave_Click);
             // 
             // label33
             // 
@@ -1281,7 +1283,7 @@
         internal System.Windows.Forms.Label label32;
         private System.Windows.Forms.TabPage tabPageEditReceptionist;
         internal System.Windows.Forms.TextBox txt_RecepEditPassword;
-        internal System.Windows.Forms.Label label24;
+        internal System.Windows.Forms.Label lbl_EditRecepPass;
         internal System.Windows.Forms.Button btn_RecepEditCancel;
         internal System.Windows.Forms.Button btn_RecepEditSave;
         internal System.Windows.Forms.Label label33;

@@ -37,6 +37,7 @@ namespace HOTELMANAGEMENT
             if (public_class.role == "Guest"|| public_class.role == "Receptionist")
             {
                 this.MenuStripManager.Visible = false;
+                this.ToolBarGuest.Text = "Edit Information";
             }
            
         }

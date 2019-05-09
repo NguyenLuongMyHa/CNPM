@@ -11,8 +11,8 @@ namespace HOTELMANAGEMENT
         public static User user;
         public static string role;
         public static bool islogin;
-        public static User guestSelected;
-        public static bool isGuestSelected;
+        public static User userSelected;
+        public static bool isUserSelected;
 
     }
 }

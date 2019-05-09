@@ -77,7 +77,7 @@
             this.SettingsToolStripMenuItem1});
             this.MenuStripManager.Location = new System.Drawing.Point(0, 0);
             this.MenuStripManager.Name = "MenuStripManager";
-            this.MenuStripManager.Size = new System.Drawing.Size(856, 24);
+            this.MenuStripManager.Size = new System.Drawing.Size(892, 24);
             this.MenuStripManager.TabIndex = 17;
             this.MenuStripManager.Text = "MenuStrip1";
             // 
@@ -96,31 +96,33 @@
             // NewCheckInToolStripMenuItem
             // 
             this.NewCheckInToolStripMenuItem.Name = "NewCheckInToolStripMenuItem";
-            this.NewCheckInToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.NewCheckInToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.NewCheckInToolStripMenuItem.Text = "New Check In";
             // 
             // NewReservationToolStripMenuItem
             // 
             this.NewReservationToolStripMenuItem.Name = "NewReservationToolStripMenuItem";
-            this.NewReservationToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.NewReservationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.NewReservationToolStripMenuItem.Text = "New Reservation";
             // 
             // ToolStripMenuItem1
             // 
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(159, 6);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // LogoutToolStripMenuItem
             // 
             this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
-            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.LogoutToolStripMenuItem.Text = "Logout";
+            this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.ToolBarLogout_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ToolBarExit_Click);
             // 
             // SettingsToolStripMenuItem
             // 
@@ -212,7 +214,7 @@
             this.toolStripInfo});
             this.ToolStrip1.Location = new System.Drawing.Point(0, 24);
             this.ToolStrip1.Name = "ToolStrip1";
-            this.ToolStrip1.Size = new System.Drawing.Size(856, 39);
+            this.ToolStrip1.Size = new System.Drawing.Size(892, 39);
             this.ToolStrip1.TabIndex = 18;
             this.ToolStrip1.Text = "ToolStrip1";
             // 
@@ -277,8 +279,8 @@
             this.ToolBarGuest.Image = ((System.Drawing.Image)(resources.GetObject("ToolBarGuest.Image")));
             this.ToolBarGuest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToolBarGuest.Name = "ToolBarGuest";
-            this.ToolBarGuest.Size = new System.Drawing.Size(73, 36);
-            this.ToolBarGuest.Text = "Guest";
+            this.ToolBarGuest.Size = new System.Drawing.Size(132, 36);
+            this.ToolBarGuest.Text = "User Information";
             this.ToolBarGuest.ToolTipText = "Guest";
             this.ToolBarGuest.Click += new System.EventHandler(this.ToolBarGuest_Click);
             // 
@@ -326,7 +328,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(245, 126);
+            this.pictureBox1.Location = new System.Drawing.Point(269, 126);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(362, 231);
             this.pictureBox1.TabIndex = 19;
@@ -337,7 +339,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.CadetBlue;
-            this.label1.Location = new System.Drawing.Point(300, 93);
+            this.label1.Location = new System.Drawing.Point(325, 93);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(252, 30);
             this.label1.TabIndex = 20;
@@ -347,7 +349,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 400);
+            this.ClientSize = new System.Drawing.Size(892, 400);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ToolStrip1);

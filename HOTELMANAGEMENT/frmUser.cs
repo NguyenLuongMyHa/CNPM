@@ -100,6 +100,8 @@ namespace HOTELMANAGEMENT
             {
                 lblEditGuestPass.Visible = false;
                 this.txt_EditGuestPassword.Visible = false;
+                lbl_EditRecepPass.Visible = false;
+                this.txt_RecepEditPassword.Visible = false;
             }
         }
         //---------------------------------------------
@@ -195,15 +197,15 @@ namespace HOTELMANAGEMENT
             frmSelectGuest guest = new frmSelectGuest();
             guest.ShowDialog();
             this.Show();
-            if(public_class.guestSelected != null && public_class.isGuestSelected==true)
+            if(public_class.userSelected != null && public_class.isUserSelected==true)
             {
-                this.txt_EditGuestFName.Text = public_class.guestSelected.UserFName;
-                this.txt_EditGuestMName.Text = public_class.guestSelected.UserMName;
-                this.txt_EditGuestLName.Text = public_class.guestSelected.UserLName;
-                this.txt_EditGuestEmail.Text = public_class.guestSelected.UserEmail;
-                this.txt_EditGuestAddress.Text = public_class.guestSelected.UserAddress;
-                this.txt_EditGuestNumber.Text = public_class.guestSelected.UserContactNumber;
-                public_class.isGuestSelected = false;
+                this.txt_EditGuestFName.Text = public_class.userSelected.UserFName;
+                this.txt_EditGuestMName.Text = public_class.userSelected.UserMName;
+                this.txt_EditGuestLName.Text = public_class.userSelected.UserLName;
+                this.txt_EditGuestEmail.Text = public_class.userSelected.UserEmail;
+                this.txt_EditGuestAddress.Text = public_class.userSelected.UserAddress;
+                this.txt_EditGuestNumber.Text = public_class.userSelected.UserContactNumber;
+                public_class.isUserSelected = false;
             }
         }
 
@@ -236,7 +238,7 @@ namespace HOTELMANAGEMENT
             string UserLName;
             string UserAddress;
             string UserContactNumber;
-            string UserGender;
+            string UserGender="Male";
             string UserEmail;
             string Status = "Active";
             string Remarks = "Available";
@@ -265,15 +267,18 @@ namespace HOTELMANAGEMENT
                 UserEmail = public_class.user.UserEmail;
             else
                 UserEmail = this.txt_EditGuestEmail.Text;
-            UserGender = this.cbx_EditGuestGender.SelectedItem.ToString();
+            if (this.cbx_EditGuestGender.SelectedItem == null)
+                MessageBox.Show("Please select gender");
+            else
+                UserGender = this.cbx_EditGuestGender.SelectedItem.ToString();
 
             string Password = this.txt_EditGuestPassword.Text;
             string Username = public_class.user.UserName;
             int ID = public_class.user.ID;
             if (public_class.role == "Receptionist"|| public_class.role == "Manager")
             {
-                Username = public_class.guestSelected.UserName;
-                ID = public_class.guestSelected.ID;
+                Username = public_class.userSelected.UserName;
+                ID = public_class.userSelected.ID;
             }
 
             try
@@ -289,6 +294,117 @@ namespace HOTELMANAGEMENT
                 MessageBox.Show("Edit Failed");
             }
 
+        }
+
+
+        private void Btn_RecepEditSave_Click(object sender, EventArgs e)
+        {
+            string UserFName;
+            string UserMName;
+            string UserLName;
+            string UserAddress;
+            string UserContactNumber;
+            string UserGender="Male";
+            string UserEmail;
+            string Status = "Active";
+            string Remarks = "Available";
+
+            if (this.txt_RecepEditFName.Text == "")
+                UserFName = public_class.user.UserFName;
+            else
+                UserFName = this.txt_RecepEditFName.Text;
+            if (this.txt_RecepEditMName.Text == "")
+                UserMName = public_class.user.UserMName;
+            else
+                UserMName = this.txt_RecepEditMName.Text;
+            if (this.txt_RecepEditLName.Text == "")
+                UserLName = public_class.user.UserLName;
+            else
+                UserLName = this.txt_RecepEditLName.Text;
+            if (this.txt_RecepEditAddress.Text == "")
+                UserAddress = public_class.user.UserAddress;
+            else
+                UserAddress = this.txt_RecepEditAddress.Text;
+            if (this.txt_RecepEditNumber.Text == "")
+                UserContactNumber = public_class.user.UserContactNumber;
+            else
+                UserContactNumber = this.txt_RecepEditNumber.Text;
+            if (this.txt_RecepEditEmail.Text == "")
+                UserEmail = public_class.user.UserEmail;
+            else
+                UserEmail = this.txt_RecepEditEmail.Text;
+            if (this.cbx_RecepEditGender.SelectedItem == null)
+                MessageBox.Show("Please select gender");
+            else
+                UserGender = this.cbx_RecepEditGender.SelectedItem.ToString();
+
+            string Password = this.txt_RecepEditPassword.Text;
+            string Username = public_class.user.UserName;
+            int ID = public_class.user.ID;
+            if (public_class.role == "Manager")
+            {
+                Username = public_class.userSelected.UserName;
+                ID = public_class.userSelected.ID;
+            }
+
+            try
+            {
+                if (public_class.role == "Manager")
+                {
+                    if (CheckNullReceptEdit() == true)
+                        MessageBox.Show("please fill out all the field!");
+                    else
+                        dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, Username, ref err);
+                }
+
+                if (public_class.role == "Receptionist")
+                {
+                    dbLogin.EditUser(Username, Password, "Receptionist", ref err);
+                    dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, Username, ref err);
+                }
+                MessageBox.Show("Edited!");
+                LoadData();
+            }
+            catch
+            {
+                MessageBox.Show("Edit Failed");
+            }
+        }
+
+        private bool CheckNullReceptEdit()
+        {
+            List<TextBox> textBoxes = new List<TextBox>();
+            textBoxes.Add(this.txt_RecepEditFName);
+            textBoxes.Add(this.txt_RecepEditMName);
+            textBoxes.Add(this.txt_RecepEditLName);
+            textBoxes.Add(this.txt_RecepEditAddress);
+            textBoxes.Add(this.txt_RecepEditEmail);
+            textBoxes.Add(this.txt_RecepEditNumber);
+            foreach(TextBox i in textBoxes)
+            {
+                if (i.Text == "")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        private void Btn_EditSelectReceptionist_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmSelectReceptionist receptlist = new frmSelectReceptionist();
+            receptlist.ShowDialog();
+            this.Show();
+            if (public_class.userSelected != null && public_class.isUserSelected == true)
+            {
+                this.txt_RecepEditFName.Text = public_class.userSelected.UserFName;
+                this.txt_RecepEditMName.Text = public_class.userSelected.UserMName;
+                this.txt_RecepEditLName.Text = public_class.userSelected.UserLName;
+                this.txt_RecepEditEmail.Text = public_class.userSelected.UserEmail;
+                this.txt_RecepEditAddress.Text = public_class.userSelected.UserAddress;
+                this.txt_RecepEditNumber.Text = public_class.userSelected.UserContactNumber;
+                public_class.isUserSelected = false;
+            }
         }
     }
 }

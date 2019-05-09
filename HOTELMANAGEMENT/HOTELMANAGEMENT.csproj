@@ -65,6 +65,12 @@
     <Compile Include="BL\BLLogin.cs" />
     <Compile Include="BL\User.cs" />
     <Compile Include="DAL\DBMain.cs" />
+    <Compile Include="frmSelectReceptionist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectReceptionist.Designer.cs">
+      <DependentUpon>frmSelectReceptionist.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="public_class.cs" />
+    <EmbeddedResource Include="frmSelectReceptionist.resx">
+      <DependentUpon>frmSelectReceptionist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>

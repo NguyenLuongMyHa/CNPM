@@ -29,6 +29,10 @@ namespace HOTELMANAGEMENT.BL
         {
             return db.ExecuteQueryDataSet("select a.ID, a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Status, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Guest'", CommandType.Text);
         }
+        public DataSet GetReceptionistUserHasID()
+        {
+            return db.ExecuteQueryDataSet("select a.ID, a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Status, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Receptionist'", CommandType.Text);
+        }
         public DataSet GetReceptionistUser()
         {
             return db.ExecuteQueryDataSet("select a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Status, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Receptionist'", CommandType.Text);
