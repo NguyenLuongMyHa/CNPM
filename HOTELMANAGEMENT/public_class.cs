@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using HOTELMANAGEMENT.BL;
 namespace HOTELMANAGEMENT
 {
@@ -13,6 +14,10 @@ namespace HOTELMANAGEMENT
         public static bool islogin;
         public static User userSelected;
         public static bool isUserSelected;
+        public static DataTable allUserData;
+        public static DataTable guestUserData;
+        public static DataTable receptionistUserData;
+        public static DataTable managerUserData;
 
     }
 }

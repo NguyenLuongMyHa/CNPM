@@ -12,10 +12,44 @@ namespace HOTELMANAGEMENT.BL
     class BLUser
     {
         DBMain db = null;
+        DataTable dtUser = null;
+        DataTable dtGuestUser = null;
+        DataTable dtReceptionistUser = null;
 
         public BLUser()
         {
             db = new DBMain();
+        }
+
+        public bool LoadDataUser()
+        {
+            try
+            {
+                dtUser = new DataTable();
+                dtUser.Clear();
+                DataSet ds = this.GetUser();
+                dtUser = ds.Tables[0];
+                public_class.allUserData = dtUser;
+
+                dtGuestUser = new DataTable();
+                dtGuestUser.Clear();
+                DataSet dsguest = this.GetGuestUser();
+                dtGuestUser = dsguest.Tables[0];
+                public_class.guestUserData = dtGuestUser;
+
+
+                dtReceptionistUser = new DataTable();
+                dtReceptionistUser.Clear();
+                DataSet dsreceptionist = this.GetReceptionistUser();
+                dtReceptionistUser = dsreceptionist.Tables[0];
+                public_class.receptionistUserData = dtReceptionistUser;
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         public DataSet GetUser()
         {
@@ -58,10 +92,9 @@ namespace HOTELMANAGEMENT.BL
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool DeleteUser(ref string err, string ID, string username)
+        public bool DeleteUser(ref string err, string username)
         {
-            string sqlString = "Delete From tblUser Where ID=" + ID + " delete from tblUser where username=N'"+username+"'";
-
+            string sqlString = " delete from tblUser where username=N'"+username+"'";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 

@@ -29,7 +29,6 @@ namespace HOTELMANAGEMENT
         {
             RolePermission(public_class.role);
             this.toolStripInfo.Text = public_class.role.ToUpper() + " " + public_class.user.UserFName + " " + public_class.user.UserMName + " " + public_class.user.UserLName;
-
         }
 
         private void RolePermission(string role)
@@ -39,7 +38,6 @@ namespace HOTELMANAGEMENT
                 this.MenuStripManager.Visible = false;
                 this.ToolBarGuest.Text = "Edit Information";
             }
-           
         }
 
         private void ToolBarLogout_Click(object sender, EventArgs e)

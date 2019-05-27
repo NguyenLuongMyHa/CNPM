@@ -20,23 +20,19 @@ namespace HOTELMANAGEMENT
         }
 
         string role;
-        DataTable dtLogin = null;
-        DataTable dtUser = null;
-
+        
         BLLogin dbLogin = new BLLogin();
-        BLUser dbUser = new BLUser();
-        bool isLogin = false;
 
         private void OK_Click(object sender, EventArgs e)
         {
 
-            bool loginsuccess = CheckLogin(this.UsernameTextBox.Text, this.PasswordTextBox.Text, this.role);
+            bool loginsuccess = dbLogin.CheckLogin(this.UsernameTextBox.Text, this.PasswordTextBox.Text, this.role);
             if (loginsuccess)
             {
                 public_class.role = this.role;
                 public_class.islogin = true;
                 MessageBox.Show("Welcome " + public_class.role + " " + public_class.user.UserName);
-                Redirect();
+                FormMainRedirect();
             }
             else
             {
@@ -51,60 +47,13 @@ namespace HOTELMANAGEMENT
         {
             Application.Exit();
         }
-        public bool CheckLogin(string username, string password, string role)
-        {
-            try
-            {
-                dtLogin = new DataTable();
-                dtLogin.Clear();
-                DataSet dslogin = dbLogin.GetUserLogin(username, password, role);
-                dtLogin = dslogin.Tables[0];
-            }
-            catch
-            {
-                MessageBox.Show("Get User Data Failed");
-                isLogin = false;
-                return isLogin;
-            }
-            if (dtLogin.Rows.Count != 0)
-            {
-                dtUser = new DataTable();
-                dtUser.Clear();
-                DataSet ds = dbUser.GetUserByUsername(username);
-                dtUser = ds.Tables[0];
-                User UserLogin = new User();
+        
 
-                foreach (DataRow dr in dtUser.Rows)
-                {
-                    UserLogin.SetUser
-                    (
-                        int.Parse(dr[0].ToString()),
-                        dr[1].ToString(),
-                        dr[2].ToString(),
-                        dr[3].ToString(),
-                        dr[4].ToString(),
-                        dr[5].ToString(),
-                        dr[6].ToString(),
-                        dr[7].ToString(),
-                        dr[8].ToString(),
-                        dr[9].ToString(),
-                        dr[10].ToString()
-                    );
-                    public_class.user = UserLogin;
-                    isLogin = true;
-                }
-            }
-            else
-                isLogin = false;
-            
-            return isLogin;
-        }
-
-        public void Redirect()
+        public void FormMainRedirect()
         {
             this.Hide();
-            frmMain guest = new frmMain();
-            guest.ShowDialog();
+            frmMain formMain = new frmMain();
+            formMain.ShowDialog();
         }
         private void rbt_Receptionist_CheckedChanged(object sender, EventArgs e)
         {

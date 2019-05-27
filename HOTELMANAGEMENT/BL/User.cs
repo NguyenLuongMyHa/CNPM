@@ -22,7 +22,7 @@ namespace HOTELMANAGEMENT.BL
 
         public void SetUser(int iD, string UserFName, string UserMName, string UserLName, string UserAddress, string UserContactNumber, string UserGender, string UserEmail, string status, string remarks, string username)
         {
-            ID = iD;
+            this.ID = iD;
             this.UserFName = UserFName;
             this.UserMName = UserMName;
             this.UserLName = UserLName;

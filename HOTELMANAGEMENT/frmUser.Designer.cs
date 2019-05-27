@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnGuestCancel = new System.Windows.Forms.Button();
-            this.btn_GuestSave = new System.Windows.Forms.Button();
+            this.btn_AddGuestSave = new System.Windows.Forms.Button();
             this.Label8 = new System.Windows.Forms.Label();
             this.txtGuestEmail = new System.Windows.Forms.TextBox();
             this.Label7 = new System.Windows.Forms.Label();
@@ -47,25 +47,26 @@
             this.txtGuestFName = new System.Windows.Forms.TextBox();
             this.Label3 = new System.Windows.Forms.Label();
             this.TabPageNewGuest = new System.Windows.Forms.TabPage();
-            this.txt_GuestPassword = new System.Windows.Forms.TextBox();
+            this.txtGuestPassword = new System.Windows.Forms.TextBox();
             this.lbl_GuestPass = new System.Windows.Forms.Label();
-            this.txt_GuestUserName = new System.Windows.Forms.TextBox();
+            this.txtGuestUserName = new System.Windows.Forms.TextBox();
             this.lbl_GuestUsername = new System.Windows.Forms.Label();
             this.TabPageGuestList = new System.Windows.Forms.TabPage();
+            this.btnGuestDelete = new System.Windows.Forms.Button();
             this.btn_GuestListCancel = new System.Windows.Forms.Button();
             this.dgv_GuestList = new System.Windows.Forms.DataGridView();
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageNewReceptionist = new System.Windows.Forms.TabPage();
-            this.txt_ReceptPassword = new System.Windows.Forms.TextBox();
+            this.txtReceptPassword = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.txt_RecepUserName = new System.Windows.Forms.TextBox();
+            this.txtRecepUserName = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.btn_ReceptCancel = new System.Windows.Forms.Button();
-            this.btn_ReceptSave = new System.Windows.Forms.Button();
+            this.btn_AddReceptSave = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtRecepEmail = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.cbx_ReceptGender = new System.Windows.Forms.ComboBox();
+            this.cbxReceptGender = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtRecepNumber = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -78,6 +79,7 @@
             this.txtRecepFName = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tabPageReceptionistList = new System.Windows.Forms.TabPage();
+            this.btnReceptDelete = new System.Windows.Forms.Button();
             this.btn_RecepListCancel = new System.Windows.Forms.Button();
             this.dgv_ReceptionistList = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
@@ -146,15 +148,15 @@
             this.btnGuestCancel.UseVisualStyleBackColor = true;
             this.btnGuestCancel.Click += new System.EventHandler(this.BtnGuestCancel_Click);
             // 
-            // btn_GuestSave
+            // btn_AddGuestSave
             // 
-            this.btn_GuestSave.Location = new System.Drawing.Point(459, 361);
-            this.btn_GuestSave.Name = "btn_GuestSave";
-            this.btn_GuestSave.Size = new System.Drawing.Size(100, 31);
-            this.btn_GuestSave.TabIndex = 58;
-            this.btn_GuestSave.Text = "&Save";
-            this.btn_GuestSave.UseVisualStyleBackColor = true;
-            this.btn_GuestSave.Click += new System.EventHandler(this.BtnGuestSave_Click);
+            this.btn_AddGuestSave.Location = new System.Drawing.Point(459, 361);
+            this.btn_AddGuestSave.Name = "btn_AddGuestSave";
+            this.btn_AddGuestSave.Size = new System.Drawing.Size(100, 31);
+            this.btn_AddGuestSave.TabIndex = 58;
+            this.btn_AddGuestSave.Text = "&Save";
+            this.btn_AddGuestSave.UseVisualStyleBackColor = true;
+            this.btn_AddGuestSave.Click += new System.EventHandler(this.BtnGuestSave_Click);
             // 
             // Label8
             // 
@@ -314,12 +316,12 @@
             // 
             // TabPageNewGuest
             // 
-            this.TabPageNewGuest.Controls.Add(this.txt_GuestPassword);
+            this.TabPageNewGuest.Controls.Add(this.txtGuestPassword);
             this.TabPageNewGuest.Controls.Add(this.lbl_GuestPass);
-            this.TabPageNewGuest.Controls.Add(this.txt_GuestUserName);
+            this.TabPageNewGuest.Controls.Add(this.txtGuestUserName);
             this.TabPageNewGuest.Controls.Add(this.lbl_GuestUsername);
             this.TabPageNewGuest.Controls.Add(this.btnGuestCancel);
-            this.TabPageNewGuest.Controls.Add(this.btn_GuestSave);
+            this.TabPageNewGuest.Controls.Add(this.btn_AddGuestSave);
             this.TabPageNewGuest.Controls.Add(this.Label8);
             this.TabPageNewGuest.Controls.Add(this.txtGuestEmail);
             this.TabPageNewGuest.Controls.Add(this.Label7);
@@ -343,14 +345,14 @@
             this.TabPageNewGuest.Text = "New Guest";
             this.TabPageNewGuest.UseVisualStyleBackColor = true;
             // 
-            // txt_GuestPassword
+            // txtGuestPassword
             // 
-            this.txt_GuestPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_GuestPassword.Location = new System.Drawing.Point(160, 310);
-            this.txt_GuestPassword.Multiline = true;
-            this.txt_GuestPassword.Name = "txt_GuestPassword";
-            this.txt_GuestPassword.Size = new System.Drawing.Size(210, 25);
-            this.txt_GuestPassword.TabIndex = 83;
+            this.txtGuestPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuestPassword.Location = new System.Drawing.Point(160, 310);
+            this.txtGuestPassword.Multiline = true;
+            this.txtGuestPassword.Name = "txtGuestPassword";
+            this.txtGuestPassword.Size = new System.Drawing.Size(210, 25);
+            this.txtGuestPassword.TabIndex = 83;
             // 
             // lbl_GuestPass
             // 
@@ -362,14 +364,14 @@
             this.lbl_GuestPass.TabIndex = 84;
             this.lbl_GuestPass.Text = "Password";
             // 
-            // txt_GuestUserName
+            // txtGuestUserName
             // 
-            this.txt_GuestUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_GuestUserName.Location = new System.Drawing.Point(160, 279);
-            this.txt_GuestUserName.Multiline = true;
-            this.txt_GuestUserName.Name = "txt_GuestUserName";
-            this.txt_GuestUserName.Size = new System.Drawing.Size(210, 25);
-            this.txt_GuestUserName.TabIndex = 81;
+            this.txtGuestUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGuestUserName.Location = new System.Drawing.Point(160, 279);
+            this.txtGuestUserName.Multiline = true;
+            this.txtGuestUserName.Name = "txtGuestUserName";
+            this.txtGuestUserName.Size = new System.Drawing.Size(210, 25);
+            this.txtGuestUserName.TabIndex = 81;
             // 
             // lbl_GuestUsername
             // 
@@ -383,6 +385,7 @@
             // 
             // TabPageGuestList
             // 
+            this.TabPageGuestList.Controls.Add(this.btnGuestDelete);
             this.TabPageGuestList.Controls.Add(this.btn_GuestListCancel);
             this.TabPageGuestList.Controls.Add(this.dgv_GuestList);
             this.TabPageGuestList.Controls.Add(this.Label9);
@@ -393,6 +396,16 @@
             this.TabPageGuestList.TabIndex = 1;
             this.TabPageGuestList.Text = "Guest List";
             this.TabPageGuestList.UseVisualStyleBackColor = true;
+            // 
+            // btnGuestDelete
+            // 
+            this.btnGuestDelete.Location = new System.Drawing.Point(437, 361);
+            this.btnGuestDelete.Name = "btnGuestDelete";
+            this.btnGuestDelete.Size = new System.Drawing.Size(100, 31);
+            this.btnGuestDelete.TabIndex = 61;
+            this.btnGuestDelete.Text = "&Delete";
+            this.btnGuestDelete.UseVisualStyleBackColor = true;
+            this.btnGuestDelete.Click += new System.EventHandler(this.BtnGuestDelete_Click);
             // 
             // btn_GuestListCancel
             // 
@@ -412,6 +425,7 @@
             this.dgv_GuestList.Name = "dgv_GuestList";
             this.dgv_GuestList.Size = new System.Drawing.Size(616, 295);
             this.dgv_GuestList.TabIndex = 59;
+            this.dgv_GuestList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_GuestList_CellClick);
             // 
             // TabControl1
             // 
@@ -429,16 +443,16 @@
             // 
             // tabPageNewReceptionist
             // 
-            this.tabPageNewReceptionist.Controls.Add(this.txt_ReceptPassword);
+            this.tabPageNewReceptionist.Controls.Add(this.txtReceptPassword);
             this.tabPageNewReceptionist.Controls.Add(this.label20);
-            this.tabPageNewReceptionist.Controls.Add(this.txt_RecepUserName);
+            this.tabPageNewReceptionist.Controls.Add(this.txtRecepUserName);
             this.tabPageNewReceptionist.Controls.Add(this.label19);
             this.tabPageNewReceptionist.Controls.Add(this.btn_ReceptCancel);
-            this.tabPageNewReceptionist.Controls.Add(this.btn_ReceptSave);
+            this.tabPageNewReceptionist.Controls.Add(this.btn_AddReceptSave);
             this.tabPageNewReceptionist.Controls.Add(this.label10);
             this.tabPageNewReceptionist.Controls.Add(this.txtRecepEmail);
             this.tabPageNewReceptionist.Controls.Add(this.label11);
-            this.tabPageNewReceptionist.Controls.Add(this.cbx_ReceptGender);
+            this.tabPageNewReceptionist.Controls.Add(this.cbxReceptGender);
             this.tabPageNewReceptionist.Controls.Add(this.label12);
             this.tabPageNewReceptionist.Controls.Add(this.txtRecepNumber);
             this.tabPageNewReceptionist.Controls.Add(this.label13);
@@ -458,14 +472,14 @@
             this.tabPageNewReceptionist.Text = "New Receptionist";
             this.tabPageNewReceptionist.UseVisualStyleBackColor = true;
             // 
-            // txt_ReceptPassword
+            // txtReceptPassword
             // 
-            this.txt_ReceptPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ReceptPassword.Location = new System.Drawing.Point(160, 310);
-            this.txt_ReceptPassword.Multiline = true;
-            this.txt_ReceptPassword.Name = "txt_ReceptPassword";
-            this.txt_ReceptPassword.Size = new System.Drawing.Size(210, 25);
-            this.txt_ReceptPassword.TabIndex = 79;
+            this.txtReceptPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtReceptPassword.Location = new System.Drawing.Point(160, 310);
+            this.txtReceptPassword.Multiline = true;
+            this.txtReceptPassword.Name = "txtReceptPassword";
+            this.txtReceptPassword.Size = new System.Drawing.Size(210, 25);
+            this.txtReceptPassword.TabIndex = 79;
             // 
             // label20
             // 
@@ -477,14 +491,14 @@
             this.label20.TabIndex = 80;
             this.label20.Text = "Password";
             // 
-            // txt_RecepUserName
+            // txtRecepUserName
             // 
-            this.txt_RecepUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RecepUserName.Location = new System.Drawing.Point(160, 279);
-            this.txt_RecepUserName.Multiline = true;
-            this.txt_RecepUserName.Name = "txt_RecepUserName";
-            this.txt_RecepUserName.Size = new System.Drawing.Size(210, 25);
-            this.txt_RecepUserName.TabIndex = 77;
+            this.txtRecepUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRecepUserName.Location = new System.Drawing.Point(160, 279);
+            this.txtRecepUserName.Multiline = true;
+            this.txtRecepUserName.Name = "txtRecepUserName";
+            this.txtRecepUserName.Size = new System.Drawing.Size(210, 25);
+            this.txtRecepUserName.TabIndex = 77;
             // 
             // label19
             // 
@@ -506,15 +520,15 @@
             this.btn_ReceptCancel.UseVisualStyleBackColor = true;
             this.btn_ReceptCancel.Click += new System.EventHandler(this.Btn_ReceptCancel_Click);
             // 
-            // btn_ReceptSave
+            // btn_AddReceptSave
             // 
-            this.btn_ReceptSave.Location = new System.Drawing.Point(459, 361);
-            this.btn_ReceptSave.Name = "btn_ReceptSave";
-            this.btn_ReceptSave.Size = new System.Drawing.Size(100, 31);
-            this.btn_ReceptSave.TabIndex = 75;
-            this.btn_ReceptSave.Text = "&Save";
-            this.btn_ReceptSave.UseVisualStyleBackColor = true;
-            this.btn_ReceptSave.Click += new System.EventHandler(this.Btn_ReceptSave_Click);
+            this.btn_AddReceptSave.Location = new System.Drawing.Point(459, 361);
+            this.btn_AddReceptSave.Name = "btn_AddReceptSave";
+            this.btn_AddReceptSave.Size = new System.Drawing.Size(100, 31);
+            this.btn_AddReceptSave.TabIndex = 75;
+            this.btn_AddReceptSave.Text = "&Save";
+            this.btn_AddReceptSave.UseVisualStyleBackColor = true;
+            this.btn_AddReceptSave.Click += new System.EventHandler(this.BtnReceptSave_Click);
             // 
             // label10
             // 
@@ -545,17 +559,17 @@
             this.label11.TabIndex = 73;
             this.label11.Text = "Email Address";
             // 
-            // cbx_ReceptGender
+            // cbxReceptGender
             // 
-            this.cbx_ReceptGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbx_ReceptGender.FormattingEnabled = true;
-            this.cbx_ReceptGender.Items.AddRange(new object[] {
+            this.cbxReceptGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxReceptGender.FormattingEnabled = true;
+            this.cbxReceptGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cbx_ReceptGender.Location = new System.Drawing.Point(160, 221);
-            this.cbx_ReceptGender.Name = "cbx_ReceptGender";
-            this.cbx_ReceptGender.Size = new System.Drawing.Size(210, 21);
-            this.cbx_ReceptGender.TabIndex = 71;
+            this.cbxReceptGender.Location = new System.Drawing.Point(160, 221);
+            this.cbxReceptGender.Name = "cbxReceptGender";
+            this.cbxReceptGender.Size = new System.Drawing.Size(210, 21);
+            this.cbxReceptGender.TabIndex = 71;
             // 
             // label12
             // 
@@ -664,6 +678,7 @@
             // 
             // tabPageReceptionistList
             // 
+            this.tabPageReceptionistList.Controls.Add(this.btnReceptDelete);
             this.tabPageReceptionistList.Controls.Add(this.btn_RecepListCancel);
             this.tabPageReceptionistList.Controls.Add(this.dgv_ReceptionistList);
             this.tabPageReceptionistList.Controls.Add(this.label18);
@@ -674,6 +689,16 @@
             this.tabPageReceptionistList.TabIndex = 3;
             this.tabPageReceptionistList.Text = "Receptionist List";
             this.tabPageReceptionistList.UseVisualStyleBackColor = true;
+            // 
+            // btnReceptDelete
+            // 
+            this.btnReceptDelete.Location = new System.Drawing.Point(434, 361);
+            this.btnReceptDelete.Name = "btnReceptDelete";
+            this.btnReceptDelete.Size = new System.Drawing.Size(100, 31);
+            this.btnReceptDelete.TabIndex = 63;
+            this.btnReceptDelete.Text = "&Delete";
+            this.btnReceptDelete.UseVisualStyleBackColor = true;
+            this.btnReceptDelete.Click += new System.EventHandler(this.BtnReceptDelete_Click);
             // 
             // btn_RecepListCancel
             // 
@@ -693,6 +718,7 @@
             this.dgv_ReceptionistList.Name = "dgv_ReceptionistList";
             this.dgv_ReceptionistList.Size = new System.Drawing.Size(613, 295);
             this.dgv_ReceptionistList.TabIndex = 61;
+            this.dgv_ReceptionistList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_ReceptionistList_CellClick);
             // 
             // label18
             // 
@@ -980,7 +1006,7 @@
             this.btn_EditSelectReceptionist.TabIndex = 126;
             this.btn_EditSelectReceptionist.Text = "...";
             this.btn_EditSelectReceptionist.UseVisualStyleBackColor = false;
-            this.btn_EditSelectReceptionist.Click += new System.EventHandler(this.Btn_EditSelectReceptionist_Click);
+            this.btn_EditSelectReceptionist.Click += new System.EventHandler(this.Btn_SelectReceptionist_Click);
             // 
             // lbl_SelectEditRecep
             // 
@@ -1030,7 +1056,7 @@
             this.btn_RecepEditSave.TabIndex = 121;
             this.btn_RecepEditSave.Text = "&Save";
             this.btn_RecepEditSave.UseVisualStyleBackColor = true;
-            this.btn_RecepEditSave.Click += new System.EventHandler(this.Btn_RecepEditSave_Click);
+            this.btn_RecepEditSave.Click += new System.EventHandler(this.Btn_EditReceptionistSave_Click);
             // 
             // label33
             // 
@@ -1211,7 +1237,7 @@
 
         #endregion
         internal System.Windows.Forms.Button btnGuestCancel;
-        internal System.Windows.Forms.Button btn_GuestSave;
+        internal System.Windows.Forms.Button btn_AddGuestSave;
         internal System.Windows.Forms.Label Label8;
         internal System.Windows.Forms.TextBox txtGuestEmail;
         internal System.Windows.Forms.Label Label7;
@@ -1234,11 +1260,11 @@
         private System.Windows.Forms.DataGridView dgv_GuestList;
         private System.Windows.Forms.TabPage tabPageNewReceptionist;
         internal System.Windows.Forms.Button btn_ReceptCancel;
-        internal System.Windows.Forms.Button btn_ReceptSave;
+        internal System.Windows.Forms.Button btn_AddReceptSave;
         internal System.Windows.Forms.Label label10;
         internal System.Windows.Forms.TextBox txtRecepEmail;
         internal System.Windows.Forms.Label label11;
-        internal System.Windows.Forms.ComboBox cbx_ReceptGender;
+        internal System.Windows.Forms.ComboBox cbxReceptGender;
         internal System.Windows.Forms.Label label12;
         internal System.Windows.Forms.TextBox txtRecepNumber;
         internal System.Windows.Forms.Label label13;
@@ -1253,13 +1279,13 @@
         private System.Windows.Forms.TabPage tabPageReceptionistList;
         private System.Windows.Forms.DataGridView dgv_ReceptionistList;
         internal System.Windows.Forms.Label label18;
-        internal System.Windows.Forms.TextBox txt_ReceptPassword;
+        internal System.Windows.Forms.TextBox txtReceptPassword;
         internal System.Windows.Forms.Label label20;
-        internal System.Windows.Forms.TextBox txt_RecepUserName;
+        internal System.Windows.Forms.TextBox txtRecepUserName;
         internal System.Windows.Forms.Label label19;
-        internal System.Windows.Forms.TextBox txt_GuestPassword;
+        internal System.Windows.Forms.TextBox txtGuestPassword;
         internal System.Windows.Forms.Label lbl_GuestPass;
-        internal System.Windows.Forms.TextBox txt_GuestUserName;
+        internal System.Windows.Forms.TextBox txtGuestUserName;
         internal System.Windows.Forms.Label lbl_GuestUsername;
         private System.Windows.Forms.TabPage tabPageGuestEdit;
         internal System.Windows.Forms.TextBox txt_EditGuestPassword;
@@ -1307,5 +1333,7 @@
         internal System.Windows.Forms.Button btn_RecepListCancel;
         internal System.Windows.Forms.Button btn_EditSelectReceptionist;
         internal System.Windows.Forms.Label lbl_SelectEditRecep;
+        internal System.Windows.Forms.Button btnGuestDelete;
+        internal System.Windows.Forms.Button btnReceptDelete;
     }
 }
