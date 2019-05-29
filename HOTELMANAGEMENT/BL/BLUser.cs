@@ -57,27 +57,27 @@ namespace HOTELMANAGEMENT.BL
         }
         public DataSet GetGuestUser()
         {
-            return db.ExecuteQueryDataSet("select a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Status, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Guest'", CommandType.Text);
+            return db.ExecuteQueryDataSet("select a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Guest'", CommandType.Text);
         }
         public DataSet GetGuestUserHasID()
         {
-            return db.ExecuteQueryDataSet("select a.ID, a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Status, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Guest'", CommandType.Text);
+            return db.ExecuteQueryDataSet("select a.ID, a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Guest'", CommandType.Text);
         }
         public DataSet GetReceptionistUserHasID()
         {
-            return db.ExecuteQueryDataSet("select a.ID, a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Status, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Receptionist'", CommandType.Text);
+            return db.ExecuteQueryDataSet("select a.ID, a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Receptionist'", CommandType.Text);
         }
         public DataSet GetReceptionistUser()
         {
-            return db.ExecuteQueryDataSet("select a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Status, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Receptionist'", CommandType.Text);
+            return db.ExecuteQueryDataSet("select a.UserFName, a.UserMName, a.UserLName, a.UserAddress, a.UserContactNumber, a.UserGender, a.UserEmail, a.Remarks, a.UserName from tblUser a, tblLogin where tblLogin.username = a.UserName and tblLogin.role = 'Receptionist'", CommandType.Text);
         }
         public DataSet GetUserByUsername(string username)
         {
             return db.ExecuteQueryDataSet("Select * from tblUser where UserName=N'"+username+"'", CommandType.Text);
         }
-        public bool AddUser(int ID, string UserFName, string UserMName, string UserLName, string UserAddress, string UserContactNumber, string UserGender, string UserEmail, string Status, string Remarks, string Username, ref string err)
+        public bool AddUser(int ID, string UserFName, string UserMName, string UserLName, string UserAddress, string UserContactNumber, string UserGender, string UserEmail, string Remarks, string Username, ref string err)
         {
-            string sqlString = "INSERT INTO tblUser(ID, UserFName,UserMName,UserLName,UserAddress,UserContactNumber,UserGender,UserEmail,Status,Remarks, UserName) Values(" +
+            string sqlString = "INSERT INTO tblUser(ID, UserFName,UserMName,UserLName,UserAddress,UserContactNumber,UserGender,UserEmail,Remarks, UserName) Values(" +
             ID + ",N'" +
             UserFName + "',N'" +
             UserMName + "',N'" +
@@ -86,7 +86,6 @@ namespace HOTELMANAGEMENT.BL
             UserContactNumber + "',N'" +
             UserGender + "',N'" +
             UserEmail + "',N'" +
-            Status + "',N'" +
             Remarks + "',N'" +
             Username + "')";
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
@@ -98,7 +97,7 @@ namespace HOTELMANAGEMENT.BL
             return db.MyExecuteNonQuery(sqlString, CommandType.Text, ref err);
         }
 
-        public bool EditUser(int ID, string UserFName, string UserMName, string UserLName, string UserAddress, string UserContactNumber, string UserGender, string UserEmail, string Status, string Remarks, string Username, ref string err)
+        public bool EditUser(int ID, string UserFName, string UserMName, string UserLName, string UserAddress, string UserContactNumber, string UserGender, string UserEmail, string Remarks, string Username, ref string err)
         {
             string sqlString =
             "Update tblUser Set " +
@@ -110,7 +109,6 @@ namespace HOTELMANAGEMENT.BL
             "UserContactNumber=N'" + UserContactNumber + "'," +
             "UserGender=N'" + UserGender + "'," +
             "UserEmail=N'" + UserEmail + "'," +
-            "Status=N'" + Status + "'," +
             "Remarks=N'" + Remarks + "'," +
             "UserName=N'" + Username +
             "' Where ID=" + ID;

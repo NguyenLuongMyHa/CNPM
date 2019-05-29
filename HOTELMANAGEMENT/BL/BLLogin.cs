@@ -101,8 +101,7 @@ namespace HOTELMANAGEMENT.BL
                         dr[6].ToString(),
                         dr[7].ToString(),
                         dr[8].ToString(),
-                        dr[9].ToString(),
-                        dr[10].ToString()
+                        dr[9].ToString()
                     );
                     public_class.user = UserLogin;
                     isLogin = true;

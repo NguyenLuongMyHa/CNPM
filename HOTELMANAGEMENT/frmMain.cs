@@ -20,11 +20,17 @@ namespace HOTELMANAGEMENT
         private void ToolBarGuest_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmUser guest = new frmUser();
-            guest.ShowDialog();
+            frmUser user = new frmUser();
+            user.ShowDialog();
             this.Show();
         }
-
+        private void ToolbarRoom_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRoom room = new frmRoom();
+            room.ShowDialog();
+            this.Show();
+        }
         private void FrmMain_Load(object sender, EventArgs e)
         {
             RolePermission(public_class.role);
@@ -59,6 +65,24 @@ namespace HOTELMANAGEMENT
             {
                 Application.Exit();
             }
+        }
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
+
+        private void ToolbarReserve_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmReserve reserve = new frmReserve();
+            reserve.ShowDialog();
+            this.Show();
         }
     }
 }

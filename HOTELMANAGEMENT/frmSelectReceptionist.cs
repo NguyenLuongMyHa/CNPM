@@ -54,12 +54,11 @@ namespace HOTELMANAGEMENT
             string ContactNum = dgvReceptionist.Rows[r].Cells[5].Value.ToString();
             string Gender = dgvReceptionist.Rows[r].Cells[6].Value.ToString();
             string Email = dgvReceptionist.Rows[r].Cells[7].Value.ToString();
-            string Status = dgvReceptionist.Rows[r].Cells[8].Value.ToString();
-            string Remark = dgvReceptionist.Rows[r].Cells[9].Value.ToString();
-            string Username = dgvReceptionist.Rows[r].Cells[10].Value.ToString();
+            string Remark = dgvReceptionist.Rows[r].Cells[8].Value.ToString();
+            string Username = dgvReceptionist.Rows[r].Cells[9].Value.ToString();
 
             User ReceptionistSelected = new User();
-            ReceptionistSelected.SetUser(ID, FName, MName, LName, Address, ContactNum, Gender, Email, Status, Remark, Username);
+            ReceptionistSelected.SetUser(ID, FName, MName, LName, Address, ContactNum, Gender, Email, Remark, Username);
             // bien toan cuc luu Receptionist nao duoc chon
             public_class.userSelected = ReceptionistSelected;
             public_class.isUserSelected = true;
@@ -71,5 +70,15 @@ namespace HOTELMANAGEMENT
         {
             LoadData();
         }
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
     }
 }

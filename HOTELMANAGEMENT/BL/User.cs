@@ -16,11 +16,10 @@ namespace HOTELMANAGEMENT.BL
         public string UserContactNumber;
         public string UserGender;
         public string UserEmail;
-        public string Status;
         public string Remarks;
         public string UserName;
 
-        public void SetUser(int iD, string UserFName, string UserMName, string UserLName, string UserAddress, string UserContactNumber, string UserGender, string UserEmail, string status, string remarks, string username)
+        public void SetUser(int iD, string UserFName, string UserMName, string UserLName, string UserAddress, string UserContactNumber, string UserGender, string UserEmail, string remarks, string username)
         {
             this.ID = iD;
             this.UserFName = UserFName;
@@ -30,7 +29,6 @@ namespace HOTELMANAGEMENT.BL
             this.UserContactNumber = UserContactNumber;
             this.UserGender = UserGender;
             this.UserEmail = UserEmail;
-            this.Status = status;
             this.Remarks = remarks;
             this.UserName = username;
         }

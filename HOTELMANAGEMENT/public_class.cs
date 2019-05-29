@@ -14,10 +14,11 @@ namespace HOTELMANAGEMENT
         public static bool islogin;
         public static User userSelected;
         public static bool isUserSelected;
+        public static bool isRoomSelected;
         public static DataTable allUserData;
         public static DataTable guestUserData;
         public static DataTable receptionistUserData;
         public static DataTable managerUserData;
-
+        public static Room roomSelected;
     }
 }

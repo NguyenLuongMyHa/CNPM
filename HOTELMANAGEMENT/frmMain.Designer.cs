@@ -96,31 +96,31 @@
             // NewCheckInToolStripMenuItem
             // 
             this.NewCheckInToolStripMenuItem.Name = "NewCheckInToolStripMenuItem";
-            this.NewCheckInToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.NewCheckInToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.NewCheckInToolStripMenuItem.Text = "New Check In";
             // 
             // NewReservationToolStripMenuItem
             // 
             this.NewReservationToolStripMenuItem.Name = "NewReservationToolStripMenuItem";
-            this.NewReservationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.NewReservationToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.NewReservationToolStripMenuItem.Text = "New Reservation";
             // 
             // ToolStripMenuItem1
             // 
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(159, 6);
             // 
             // LogoutToolStripMenuItem
             // 
             this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
-            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.LogoutToolStripMenuItem.Text = "Logout";
             this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.ToolBarLogout_Click);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ToolBarExit_Click);
             // 
@@ -254,6 +254,7 @@
             this.toolbarReserve.Size = new System.Drawing.Size(104, 36);
             this.toolbarReserve.Text = "Reservation";
             this.toolbarReserve.ToolTipText = "Reserve";
+            this.toolbarReserve.Click += new System.EventHandler(this.ToolbarReserve_Click);
             // 
             // ToolStripSeparator7
             // 
@@ -268,6 +269,7 @@
             this.toolbarRoom.Size = new System.Drawing.Size(80, 36);
             this.toolbarRoom.Text = "Rooms";
             this.toolbarRoom.ToolTipText = "Room";
+            this.toolbarRoom.Click += new System.EventHandler(this.ToolbarRoom_Click);
             // 
             // ToolStripSeparator8
             // 

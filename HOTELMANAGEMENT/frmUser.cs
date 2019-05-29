@@ -26,7 +26,6 @@ namespace HOTELMANAGEMENT
             RolePermission(public_class.role);
             LoadData();
         }
-      
         private void LoadData()
         {
             if(dbUser.LoadDataUser()==true)
@@ -35,7 +34,7 @@ namespace HOTELMANAGEMENT
                 dgv_GuestList.AutoResizeColumns();
                 dgv_ReceptionistList.DataSource = public_class.receptionistUserData;
                 dgv_ReceptionistList.AutoResizeColumns();
-                if(public_class.role == "Guest")
+                if(public_class.role == "Guest"&& public_class.islogin==true)
                 {
                     this.txt_EditGuestFName.Text = public_class.user.UserFName;
                     this.txt_EditGuestMName.Text = public_class.user.UserMName;
@@ -62,7 +61,6 @@ namespace HOTELMANAGEMENT
                 MessageBox.Show("Load data error");
             }
         }        
-        //---------------------------------------------
         private void RolePermission(string role)
         {
             //Guest register
@@ -96,6 +94,7 @@ namespace HOTELMANAGEMENT
                 btn_EditSelectReceptionist.Visible = false;
                 TabControl1.TabPages.Remove(tabPageReceptionistList);
                 TabControl1.TabPages.Remove(tabPageNewReceptionist);
+                this.btn_EditGuestSave.Visible = false;
             }
 
             if(public_class.role == "Manager" && public_class.islogin == true)
@@ -104,10 +103,12 @@ namespace HOTELMANAGEMENT
                 this.txt_EditGuestPassword.Visible = false;
                 lbl_EditRecepPass.Visible = false;
                 this.txt_RecepEditPassword.Visible = false;
+                this.btn_EditGuestSave.Visible = false;
+                this.btn_RecepEditSave.Visible = false;
             }
         }
-        //---------------------------------------------
-        private void BtnGuestSave_Click(object sender, EventArgs e)//add Guest
+        //add Guest
+        private void BtnGuestSave_Click(object sender, EventArgs e)
         {
             if(CheckNullGuest()==true)
                 MessageBox.Show("Please enter all fields");
@@ -120,7 +121,6 @@ namespace HOTELMANAGEMENT
                 string UserAddress = this.txtGuestAddress.Text;
                 string UserContactNumber = this.txtGuestNumber.Text;
                 string UserEmail = this.txtGuestEmail.Text;
-                string Status = "Active";
                 string Remarks = "Available";
                 string UserName = this.txtGuestUserName.Text;
                 string Password = this.txtGuestPassword.Text;
@@ -147,7 +147,7 @@ namespace HOTELMANAGEMENT
                         LoadData();
                         int ID = dbUser.AutoGenerateID(public_class.allUserData);
                         dbLogin.AddUser(UserName, Password, "Guest", ref err);
-                        dbUser.AddUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, UserName, ref err);
+                        dbUser.AddUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Remarks, UserName, ref err);
                         MessageBox.Show("Registered!");
                         LoadData();
                     }
@@ -159,7 +159,8 @@ namespace HOTELMANAGEMENT
             }
             
         }
-        private void BtnReceptSave_Click(object sender, EventArgs e)// Manager add new Receptionist
+        // Manager add new Receptionist
+        private void BtnReceptSave_Click(object sender, EventArgs e)
         {
             if (CheckNullRecept() == true)
                 MessageBox.Show("Please enter all fields");
@@ -172,7 +173,6 @@ namespace HOTELMANAGEMENT
                 string UserAddress = this.txtRecepAddress.Text;
                 string UserContactNumber = this.txtRecepNumber.Text;
                 string UserEmail = this.txtRecepEmail.Text;
-                string Status = "Active";
                 string Remarks = "Available";
                 string UserName = this.txtRecepUserName.Text;
                 string Password = this.txtReceptPassword.Text;
@@ -201,7 +201,7 @@ namespace HOTELMANAGEMENT
                         int ID = dbUser.AutoGenerateID(public_class.allUserData);
 
                         dbLogin.AddUser(UserName, Password, "Receptionist", ref err);
-                        dbUser.AddUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, UserName, ref err);
+                        dbUser.AddUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Remarks, UserName, ref err);
                         MessageBox.Show("Registered!");
                         LoadData();
                     }
@@ -219,6 +219,7 @@ namespace HOTELMANAGEMENT
             frmSelectGuest guest = new frmSelectGuest();
             guest.ShowDialog();
             this.Show();
+            this.btn_EditGuestSave.Visible = true;
             if(public_class.userSelected != null && public_class.isUserSelected==true)
             {
                 this.txt_EditGuestFName.Text = public_class.userSelected.UserFName;
@@ -238,6 +239,7 @@ namespace HOTELMANAGEMENT
             frmSelectReceptionist receptlist = new frmSelectReceptionist();
             receptlist.ShowDialog();
             this.Show();
+            this.btn_RecepEditSave.Visible = true;
             if (public_class.userSelected != null && public_class.isUserSelected == true)
             {
                 this.txt_RecepEditFName.Text = public_class.userSelected.UserFName;
@@ -250,31 +252,38 @@ namespace HOTELMANAGEMENT
                 public_class.isUserSelected = false;
             }
         }
-        private void Btn_EditGuestSave_Click(object sender, EventArgs e)//Edit Guest
+        //Edit Guest
+        private void Btn_EditGuestSave_Click(object sender, EventArgs e)
         {
-            
-
+            bool isSafe;
             string UserGender = "Male";
             if (this.cbx_EditGuestGender.SelectedItem == null)
+            {
+                isSafe = false;
                 MessageBox.Show("Please select gender");
-            else
-                UserGender = this.cbx_EditGuestGender.SelectedItem.ToString();
-            if (CheckNullGuestEdit() == true)
-                MessageBox.Show("Please enter all fields");
+            }
             else
             {
-                
+                UserGender = this.cbx_EditGuestGender.SelectedItem.ToString();
+                isSafe = true;
+            }
+            if (CheckNullGuestEdit() == true)
+            {
+                MessageBox.Show("Please enter all fields");
+                isSafe = false;
+            }
+            else
+                isSafe = true;
+            if(isSafe==true)
+            {
                 string UserFName = this.txt_EditGuestFName.Text;
                 string UserMName = this.txt_EditGuestMName.Text;
                 string UserLName = this.txt_EditGuestLName.Text;
                 string UserAddress = this.txt_EditGuestAddress.Text;
                 string UserContactNumber = this.txt_EditGuestNumber.Text;
                 string UserEmail = this.txt_EditGuestEmail.Text;
-                string Status = "Active";
                 string Remarks = "Available";
                 string Password = this.txt_EditGuestPassword.Text;
-
-
                 string Username = public_class.user.UserName;
                 int ID = public_class.user.ID;
                 if (public_class.role == "Receptionist" || public_class.role == "Manager")
@@ -294,13 +303,25 @@ namespace HOTELMANAGEMENT
                         }
                         else
                         {
-                            dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, Username, ref err);
+                            dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Remarks, Username, ref err);
+                            User userEdited = new User();
+                            userEdited.ID = ID;
+                            userEdited.UserFName= UserFName;
+                            userEdited.UserMName= UserMName;
+                            userEdited.UserLName= UserLName;
+                            userEdited.UserAddress= UserAddress;
+                            userEdited.UserContactNumber= UserContactNumber;
+                            userEdited.UserGender= UserGender;
+                            userEdited.UserEmail= UserEmail;
+                            userEdited.Remarks= Remarks;
+                            userEdited.UserName= Username;
+                            public_class.user = userEdited;
                             MessageBox.Show("Edited!");
                         }
                     }
                     else//Manager và Receptionist khong sua password cua guest
                     {
-                        dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, Username, ref err);
+                        dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Remarks, Username, ref err);
                         MessageBox.Show("Edited!");
                     }
 
@@ -312,7 +333,8 @@ namespace HOTELMANAGEMENT
                 }
             }
         }
-        private void Btn_EditReceptionistSave_Click(object sender, EventArgs e)//Edit Guest
+        //Edit Receptionist
+        private void Btn_EditReceptionistSave_Click(object sender, EventArgs e)
         {
             string UserGender = "Male";
             if (this.cbx_RecepEditGender.SelectedItem == null)
@@ -329,7 +351,6 @@ namespace HOTELMANAGEMENT
                 string UserAddress = this.txt_RecepEditAddress.Text;
                 string UserContactNumber = this.txt_RecepEditNumber.Text;
                 string UserEmail = this.txt_RecepEditEmail.Text;
-                string Status = "Active";
                 string Remarks = "Available";
                 string Password = this.txt_RecepEditPassword.Text;
                 string Username = public_class.user.UserName;
@@ -352,13 +373,25 @@ namespace HOTELMANAGEMENT
                         }
                         else
                         {
-                            dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, Username, ref err);
+                            dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Remarks, Username, ref err);
+                            User userEdited = new User();
+                            userEdited.ID = ID;
+                            userEdited.UserFName = UserFName;
+                            userEdited.UserMName = UserMName;
+                            userEdited.UserLName = UserLName;
+                            userEdited.UserAddress = UserAddress;
+                            userEdited.UserContactNumber = UserContactNumber;
+                            userEdited.UserGender = UserGender;
+                            userEdited.UserEmail = UserEmail;
+                            userEdited.Remarks = Remarks;
+                            userEdited.UserName = Username;
+                            public_class.user = userEdited;
                             MessageBox.Show("Edited!");
                         }
                     }
                     else//Manager khong sua password cua receptionist 
                     {
-                        dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Status, Remarks, Username, ref err);
+                        dbUser.EditUser(ID, UserFName, UserMName, UserLName, UserAddress, UserContactNumber, UserGender, UserEmail, Remarks, Username, ref err);
                         MessageBox.Show("Edited!");
                     }
 
@@ -474,7 +507,6 @@ namespace HOTELMANAGEMENT
         {
             this.Close();
         }
-
         private void BtnGuestDelete_Click(object sender, EventArgs e)
         {
             if(deleteUser=="")
@@ -493,7 +525,6 @@ namespace HOTELMANAGEMENT
                 }
             }
         }
-
         private void BtnReceptDelete_Click(object sender, EventArgs e)
         {
             if (deleteUser == "")
@@ -512,17 +543,25 @@ namespace HOTELMANAGEMENT
                 }
             }
         }
-
         private void Dgv_GuestList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int r = dgv_GuestList.CurrentCell.RowIndex;
-            deleteUser = dgv_GuestList.Rows[r].Cells[9].Value.ToString();
+            deleteUser = dgv_GuestList.Rows[r].Cells[8].Value.ToString();
         }
-
         private void Dgv_ReceptionistList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int r = dgv_ReceptionistList.CurrentCell.RowIndex;
-            deleteUser = dgv_ReceptionistList.Rows[r].Cells[9].Value.ToString();
+            deleteUser = dgv_ReceptionistList.Rows[r].Cells[8].Value.ToString();
         }
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_NCHITTEST)
+                m.Result = (IntPtr)(HT_CAPTION);
+        }
+
+        private const int WM_NCHITTEST = 0x84;
+        private const int HT_CLIENT = 0x1;
+        private const int HT_CAPTION = 0x2;
     }
 }
