@@ -111,6 +111,13 @@ namespace HOTELMANAGEMENT
 
         private void CboDiscount_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string itemSelected = this.cboDiscount.SelectedItem.ToString();
+            this.txtDiscountRate.Text =  dbReserve.GetDiscountRate(itemSelected).ToString();
+
+        }
+
+        private void BttnReserve_Click(object sender, EventArgs e)
+        {
 
         }
     }

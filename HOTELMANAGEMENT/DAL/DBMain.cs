@@ -49,6 +49,22 @@ namespace HOTELMANAGEMENT.DAL
             }
             return result;
         }
+        public int ExecuteQueryInt(string strSQL, CommandType ct)
+        {
+            if (conn.State == ConnectionState.Open)
+                conn.Close();
+            conn.Open();
+            comm.CommandText = strSQL;
+            comm.CommandType = ct;
+
+            int result = 0;
+            object value = comm.ExecuteScalar();
+            if (value != null)
+            {
+                result = (int)value;
+            }
+            return result;
+        }
 
         public bool MyExecuteNonQuery(string strSQL, CommandType ct, ref string error)
         {

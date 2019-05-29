@@ -190,7 +190,6 @@
             this.txtAdults.Location = new System.Drawing.Point(552, 85);
             this.txtAdults.Multiline = true;
             this.txtAdults.Name = "txtAdults";
-            this.txtAdults.ReadOnly = true;
             this.txtAdults.Size = new System.Drawing.Size(150, 25);
             this.txtAdults.TabIndex = 69;
             this.txtAdults.Text = "0";
@@ -203,7 +202,6 @@
             this.txtChildren.Location = new System.Drawing.Point(552, 116);
             this.txtChildren.Multiline = true;
             this.txtChildren.Name = "txtChildren";
-            this.txtChildren.ReadOnly = true;
             this.txtChildren.Size = new System.Drawing.Size(150, 25);
             this.txtChildren.TabIndex = 68;
             this.txtChildren.Text = "0";
@@ -246,6 +244,7 @@
             this.bttnReserve.TabIndex = 64;
             this.bttnReserve.Text = "&Reserve";
             this.bttnReserve.UseVisualStyleBackColor = true;
+            this.bttnReserve.Click += new System.EventHandler(this.BttnReserve_Click);
             // 
             // txtTotal
             // 
@@ -271,10 +270,12 @@
             // 
             // txtPayment
             // 
+            this.txtPayment.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPayment.Location = new System.Drawing.Point(553, 207);
             this.txtPayment.Multiline = true;
             this.txtPayment.Name = "txtPayment";
+            this.txtPayment.ReadOnly = true;
             this.txtPayment.Size = new System.Drawing.Size(150, 25);
             this.txtPayment.TabIndex = 52;
             this.txtPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

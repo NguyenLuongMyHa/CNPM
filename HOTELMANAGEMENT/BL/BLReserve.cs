@@ -20,9 +20,9 @@ namespace HOTELMANAGEMENT.BL
         {
             return db.ExecuteQueryDataSet("select * from tblDiscount where Status = 'Active'", CommandType.Text);
         }
-        public string GetDiscountRate(string DiscountType)
+        public int GetDiscountRate(string DiscountType)
         {
-            return db.ExecuteQueryString("select * from tblDiscount where DiscountType = '"+DiscountType+"'", CommandType.Text);
+            return db.ExecuteQueryInt("select tblDiscount.DiscountRate from tblDiscount where DiscountType =N'" + DiscountType+"'", CommandType.Text);
         }
     }
 }
