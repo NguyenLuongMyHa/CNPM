@@ -51,6 +51,12 @@ namespace HOTELMANAGEMENT
                 }
                 cboDiscount.DataSource = discountList;
             }
+            if (dbReserve.GetReservation() != null)
+            {
+                DataTable dtReservation = new DataTable();
+                dtReservation = dbReserve.GetReservation().Tables[0];
+                this.dgvReservationList.DataSource = dtReservation;
+            }
 
         }
 
@@ -74,13 +80,15 @@ namespace HOTELMANAGEMENT
         {
             try
             {
-                int Date = int.Parse(this.txtDaysNumber.Text);
-                int Payment = dbReserve.GetPrice(public_class.roomSelected.RoomNumber) * 1000 * Date;
-                this.txtPayment.Text = Payment.ToString();
-                double Discount = Payment * int.Parse(this.txtDiscountRate.Text) / 100.0;
-                this.txtDiscountPayment.Text = Discount.ToString();
-                double Total = Payment - Discount;
-                this.txtTotal.Text = Total.ToString();
+                
+                    int Date = int.Parse(this.txtDaysNumber.Text);
+                    int Payment = dbReserve.GetPrice(public_class.roomSelected.RoomNumber) * 1000 * Date;
+                    this.txtPayment.Text = Payment.ToString();
+                    double Discount = Payment * int.Parse(this.txtDiscountRate.Text) / 100.0;
+                    this.txtDiscountPayment.Text = Discount.ToString();
+                    double Total = Payment - Discount;
+                    this.txtTotal.Text = Total.ToString();
+                
             }
             catch
             {
@@ -120,12 +128,7 @@ namespace HOTELMANAGEMENT
             else
             {
                 txtDaysNumber.Text = T.Days.ToString();
-            }
-            /*
-            lblTotal.Text = Convert.ToString(Convert.ToInt32(txtRoomRate.Text) * Convert.ToInt32(txtDaysNumber.Text));
-            txtSubTotal.Text = Convert.ToString(Convert.ToInt32(txtRoomRate.Text) * Convert.ToInt32(txtDaysNumber.Text));
-            lblDateNow.Text = DateTime.Now.Date.ToString();
-            */    
+            } 
         }
 
         private void CboDiscount_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,7 +155,6 @@ namespace HOTELMANAGEMENT
                 MessageBox.Show("Please select the number of guests less than " + NoOfOccurency);
                 flag = false;
             }
-            Reservation newReservation = new Reservation();
             int ID = dbReserve.AutoGenerateID();
             int GuestID;
             if (public_class.role == "Guest")
@@ -173,8 +175,12 @@ namespace HOTELMANAGEMENT
                 MessageBox.Show("Please select number of day you stay in our Hotel");
                 flag = false;
             }
-
-            if(flag == true)
+            if (public_class.roomSelected !=null && (public_class.roomSelected.Status == "Occupied" || public_class.roomSelected.Status == "Reserve"))
+            {
+                MessageBox.Show("Please select room available");
+                flag = false;
+            }
+            if (flag == true)
             {
                 int RoomID = public_class.roomSelected.ID;
 
@@ -184,10 +190,19 @@ namespace HOTELMANAGEMENT
                 int NoOfAdults = Convert.ToInt16(this.txtAdults.Text);
                 int DiscountID = dbReserve.GetDiscountID(this.cboDiscount.SelectedItem.ToString());
                 string Remark = "Reserve";
+                int Payment = int.Parse(this.txtPayment.Text);
+                int DiscountPayment = int.Parse(this.txtDiscountPayment.Text);
+                int Total = int.Parse(this.txtTotal.Text);
+
                 try
                 {
+                    int BillingID = dbReserve.AutoGenerateBillingID();
                     dbReserve.MakeReservation(ID, GuestID, RoomID, CheckInDate, CheckOutDate, NoOfChild, NoOfAdults, DiscountID, Remark, ref err);
+                    dbReserve.MakeBilling(BillingID, ID, Payment, DiscountPayment, Total, ref err);
+                    dbReserve.ChangeRoomStatusReserve(RoomID, ref err);
+                    dbReserve.ChangeUserRemarkReserve(GuestID, ref err);
                     MessageBox.Show("Congratulations!" + Environment.NewLine + "successful booking");
+                    LoadData();
                 }
                 catch
                 {

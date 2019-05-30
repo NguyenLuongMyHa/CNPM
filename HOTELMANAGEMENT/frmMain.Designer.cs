@@ -226,6 +226,7 @@
             this.toolbarCheckIn.Size = new System.Drawing.Size(91, 36);
             this.toolbarCheckIn.Text = "Check-in";
             this.toolbarCheckIn.ToolTipText = "Checkin";
+            this.toolbarCheckIn.Click += new System.EventHandler(this.ToolbarCheckIn_Click);
             // 
             // ToolStripButton11
             // 
@@ -240,6 +241,7 @@
             this.toolbarCheckOut.Size = new System.Drawing.Size(94, 36);
             this.toolbarCheckOut.Text = "Checkout";
             this.toolbarCheckOut.ToolTipText = "Checkout";
+            this.toolbarCheckOut.Click += new System.EventHandler(this.ToolbarCheckOut_Click);
             // 
             // ToolStripSeparator6
             // 

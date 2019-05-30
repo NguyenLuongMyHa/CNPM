@@ -69,10 +69,8 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.Label1 = new System.Windows.Forms.Label();
             this.TabPage2 = new System.Windows.Forms.TabPage();
-            this.bttnCheckin = new System.Windows.Forms.Button();
-            this.bttnCancelReserve = new System.Windows.Forms.Button();
-            this.Label16 = new System.Windows.Forms.Label();
             this.dgvReservationList = new System.Windows.Forms.DataGridView();
+            this.Label16 = new System.Windows.Forms.Label();
             this.TabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
             this.TabPage2.SuspendLayout();
@@ -545,8 +543,6 @@
             // TabPage2
             // 
             this.TabPage2.Controls.Add(this.dgvReservationList);
-            this.TabPage2.Controls.Add(this.bttnCheckin);
-            this.TabPage2.Controls.Add(this.bttnCancelReserve);
             this.TabPage2.Controls.Add(this.Label16);
             this.TabPage2.Location = new System.Drawing.Point(4, 22);
             this.TabPage2.Name = "TabPage2";
@@ -556,23 +552,14 @@
             this.TabPage2.Text = "Reservation List";
             this.TabPage2.UseVisualStyleBackColor = true;
             // 
-            // bttnCheckin
+            // dgvReservationList
             // 
-            this.bttnCheckin.Location = new System.Drawing.Point(493, 331);
-            this.bttnCheckin.Name = "bttnCheckin";
-            this.bttnCheckin.Size = new System.Drawing.Size(94, 30);
-            this.bttnCheckin.TabIndex = 41;
-            this.bttnCheckin.Text = "&Checkin";
-            this.bttnCheckin.UseVisualStyleBackColor = true;
-            // 
-            // bttnCancelReserve
-            // 
-            this.bttnCancelReserve.Location = new System.Drawing.Point(593, 330);
-            this.bttnCancelReserve.Name = "bttnCancelReserve";
-            this.bttnCancelReserve.Size = new System.Drawing.Size(130, 30);
-            this.bttnCancelReserve.TabIndex = 40;
-            this.bttnCancelReserve.Text = "Cancel &Reservation";
-            this.bttnCancelReserve.UseVisualStyleBackColor = true;
+            this.dgvReservationList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReservationList.Location = new System.Drawing.Point(15, 51);
+            this.dgvReservationList.Name = "dgvReservationList";
+            this.dgvReservationList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvReservationList.Size = new System.Drawing.Size(708, 273);
+            this.dgvReservationList.TabIndex = 42;
             // 
             // Label16
             // 
@@ -584,14 +571,6 @@
             this.Label16.Size = new System.Drawing.Size(157, 24);
             this.Label16.TabIndex = 37;
             this.Label16.Text = "Reservation List";
-            // 
-            // dgvReservationList
-            // 
-            this.dgvReservationList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReservationList.Location = new System.Drawing.Point(15, 51);
-            this.dgvReservationList.Name = "dgvReservationList";
-            this.dgvReservationList.Size = new System.Drawing.Size(708, 273);
-            this.dgvReservationList.TabIndex = 42;
             // 
             // frmReserve
             // 
@@ -649,8 +628,6 @@
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.TabPage TabPage2;
-        internal System.Windows.Forms.Button bttnCheckin;
-        internal System.Windows.Forms.Button bttnCancelReserve;
         internal System.Windows.Forms.Label Label16;
         internal System.Windows.Forms.TextBox txtDiscountPayment;
         internal System.Windows.Forms.Label label17;

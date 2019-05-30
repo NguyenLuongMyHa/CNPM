@@ -33,8 +33,6 @@ namespace HOTELMANAGEMENT
                 dtReceptionist = ds.Tables[0];
                 dgvReceptionist.DataSource = dtReceptionist;
                 dgvReceptionist.AutoResizeColumns();
-
-                dgvReceptionist.AutoResizeColumns();
                 dgvReceptionist.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             }
             catch (SqlException)

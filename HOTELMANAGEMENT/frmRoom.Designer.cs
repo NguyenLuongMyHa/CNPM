@@ -42,10 +42,10 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.Label9 = new System.Windows.Forms.Label();
             this.TabPageRoomList = new System.Windows.Forms.TabPage();
-            this.Label5 = new System.Windows.Forms.Label();
-            this.dgv_RoomList = new System.Windows.Forms.DataGridView();
-            this.btn_RoomCancel = new System.Windows.Forms.Button();
             this.btn_RoomDelete = new System.Windows.Forms.Button();
+            this.btn_RoomCancel = new System.Windows.Forms.Button();
+            this.dgv_RoomList = new System.Windows.Forms.DataGridView();
+            this.Label5 = new System.Windows.Forms.Label();
             this.Tab_Room.SuspendLayout();
             this.TabPageNewRoom.SuspendLayout();
             this.TabPageRoomList.SuspendLayout();
@@ -204,26 +204,16 @@
             this.TabPageRoomList.Text = "Room List";
             this.TabPageRoomList.UseVisualStyleBackColor = true;
             // 
-            // Label5
+            // btn_RoomDelete
             // 
-            this.Label5.AutoSize = true;
-            this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label5.Location = new System.Drawing.Point(19, 22);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(102, 24);
-            this.Label5.TabIndex = 60;
-            this.Label5.Text = "Room List";
-            // 
-            // dgv_RoomList
-            // 
-            this.dgv_RoomList.BackgroundColor = System.Drawing.Color.White;
-            this.dgv_RoomList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_RoomList.GridColor = System.Drawing.Color.White;
-            this.dgv_RoomList.Location = new System.Drawing.Point(6, 49);
-            this.dgv_RoomList.Name = "dgv_RoomList";
-            this.dgv_RoomList.Size = new System.Drawing.Size(587, 196);
-            this.dgv_RoomList.TabIndex = 61;
-            this.dgv_RoomList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_RoomList_CellDoubleClick);
+            this.btn_RoomDelete.Location = new System.Drawing.Point(387, 251);
+            this.btn_RoomDelete.Name = "btn_RoomDelete";
+            this.btn_RoomDelete.Size = new System.Drawing.Size(100, 31);
+            this.btn_RoomDelete.TabIndex = 71;
+            this.btn_RoomDelete.Text = "&Delete";
+            this.btn_RoomDelete.UseVisualStyleBackColor = true;
+            this.btn_RoomDelete.Visible = false;
+            this.btn_RoomDelete.Click += new System.EventHandler(this.Btn_RoomDelete_Click);
             // 
             // btn_RoomCancel
             // 
@@ -235,16 +225,27 @@
             this.btn_RoomCancel.UseVisualStyleBackColor = true;
             this.btn_RoomCancel.Click += new System.EventHandler(this.Btn_RoomCancel_Click);
             // 
-            // btn_RoomDelete
+            // dgv_RoomList
             // 
-            this.btn_RoomDelete.Location = new System.Drawing.Point(387, 251);
-            this.btn_RoomDelete.Name = "btn_RoomDelete";
-            this.btn_RoomDelete.Size = new System.Drawing.Size(100, 31);
-            this.btn_RoomDelete.TabIndex = 71;
-            this.btn_RoomDelete.Text = "&Delete";
-            this.btn_RoomDelete.UseVisualStyleBackColor = true;
-            this.btn_RoomDelete.Visible = false;
-            this.btn_RoomDelete.Click += new System.EventHandler(this.Btn_RoomDelete_Click);
+            this.dgv_RoomList.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_RoomList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_RoomList.GridColor = System.Drawing.Color.White;
+            this.dgv_RoomList.Location = new System.Drawing.Point(6, 49);
+            this.dgv_RoomList.Name = "dgv_RoomList";
+            this.dgv_RoomList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_RoomList.Size = new System.Drawing.Size(587, 196);
+            this.dgv_RoomList.TabIndex = 61;
+            this.dgv_RoomList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_RoomList_CellDoubleClick);
+            // 
+            // Label5
+            // 
+            this.Label5.AutoSize = true;
+            this.Label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label5.Location = new System.Drawing.Point(19, 22);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(102, 24);
+            this.Label5.TabIndex = 60;
+            this.Label5.Text = "Room List";
             // 
             // frmRoom
             // 

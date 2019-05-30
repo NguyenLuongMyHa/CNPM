@@ -43,6 +43,14 @@ namespace HOTELMANAGEMENT
             {
                 this.MenuStripManager.Visible = false;
                 this.ToolBarGuest.Text = "Edit Information";
+
+            }
+            if (public_class.role == "Guest")
+            {
+                this.toolbarCheckIn.Visible = false;
+                this.toolbarCheckOut.Visible = false;
+                this.ToolStripButton11.Visible = false;
+                this.ToolStripSeparator6.Visible = false;
             }
         }
 
@@ -82,6 +90,22 @@ namespace HOTELMANAGEMENT
             this.Hide();
             frmReserve reserve = new frmReserve();
             reserve.ShowDialog();
+            this.Show();
+        }
+
+        private void ToolbarCheckIn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmCheckin checkin = new frmCheckin();
+            checkin.ShowDialog();
+            this.Show();
+        }
+
+        private void ToolbarCheckOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmCheckout checkout = new frmCheckout();
+            checkout.ShowDialog();
             this.Show();
         }
     }
