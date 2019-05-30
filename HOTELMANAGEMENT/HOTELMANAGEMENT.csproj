@@ -65,6 +65,7 @@
     <Compile Include="BL\BLRoom.cs" />
     <Compile Include="BL\BLUser.cs" />
     <Compile Include="BL\BLLogin.cs" />
+    <Compile Include="BL\Reservation.cs" />
     <Compile Include="BL\Room.cs" />
     <Compile Include="BL\User.cs" />
     <Compile Include="DAL\DBMain.cs" />

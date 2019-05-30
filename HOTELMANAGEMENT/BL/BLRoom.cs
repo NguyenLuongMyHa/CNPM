@@ -62,6 +62,8 @@ namespace HOTELMANAGEMENT.BL
             else
                 return false;
         }
+
+        
         public int AutoGenerateID()
         {
             DataTable data = LoadRoom();

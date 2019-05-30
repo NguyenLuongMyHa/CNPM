@@ -30,6 +30,10 @@
         {
             this.TabControl1 = new System.Windows.Forms.TabControl();
             this.TabPage1 = new System.Windows.Forms.TabPage();
+            this.btnAddChildren = new System.Windows.Forms.Button();
+            this.btnAddAdults = new System.Windows.Forms.Button();
+            this.btnSubChildren = new System.Windows.Forms.Button();
+            this.btnSubAdults = new System.Windows.Forms.Button();
             this.txtDiscountPayment = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dtCheckInDate = new System.Windows.Forms.DateTimePicker();
@@ -67,25 +71,12 @@
             this.TabPage2 = new System.Windows.Forms.TabPage();
             this.bttnCheckin = new System.Windows.Forms.Button();
             this.bttnCancelReserve = new System.Windows.Forms.Button();
-            this.dtOut = new System.Windows.Forms.DateTimePicker();
-            this.dtIn = new System.Windows.Forms.DateTimePicker();
             this.Label16 = new System.Windows.Forms.Label();
-            this.lvlreserve = new System.Windows.Forms.ListView();
-            this.ColumnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ColumnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dgvReservationList = new System.Windows.Forms.DataGridView();
             this.TabControl1.SuspendLayout();
             this.TabPage1.SuspendLayout();
             this.TabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReservationList)).BeginInit();
             this.SuspendLayout();
             // 
             // TabControl1
@@ -100,6 +91,10 @@
             // 
             // TabPage1
             // 
+            this.TabPage1.Controls.Add(this.btnAddChildren);
+            this.TabPage1.Controls.Add(this.btnAddAdults);
+            this.TabPage1.Controls.Add(this.btnSubChildren);
+            this.TabPage1.Controls.Add(this.btnSubAdults);
             this.TabPage1.Controls.Add(this.txtDiscountPayment);
             this.TabPage1.Controls.Add(this.label17);
             this.TabPage1.Controls.Add(this.dtCheckInDate);
@@ -142,6 +137,46 @@
             this.TabPage1.Text = "Reservation Form";
             this.TabPage1.UseVisualStyleBackColor = true;
             // 
+            // btnAddChildren
+            // 
+            this.btnAddChildren.Location = new System.Drawing.Point(666, 116);
+            this.btnAddChildren.Name = "btnAddChildren";
+            this.btnAddChildren.Size = new System.Drawing.Size(32, 25);
+            this.btnAddChildren.TabIndex = 81;
+            this.btnAddChildren.Text = "+";
+            this.btnAddChildren.UseVisualStyleBackColor = true;
+            this.btnAddChildren.Click += new System.EventHandler(this.BtnAddChildren_Click);
+            // 
+            // btnAddAdults
+            // 
+            this.btnAddAdults.Location = new System.Drawing.Point(666, 85);
+            this.btnAddAdults.Name = "btnAddAdults";
+            this.btnAddAdults.Size = new System.Drawing.Size(32, 25);
+            this.btnAddAdults.TabIndex = 80;
+            this.btnAddAdults.Text = "+";
+            this.btnAddAdults.UseVisualStyleBackColor = true;
+            this.btnAddAdults.Click += new System.EventHandler(this.BtnAddAdults_Click);
+            // 
+            // btnSubChildren
+            // 
+            this.btnSubChildren.Location = new System.Drawing.Point(628, 116);
+            this.btnSubChildren.Name = "btnSubChildren";
+            this.btnSubChildren.Size = new System.Drawing.Size(32, 25);
+            this.btnSubChildren.TabIndex = 79;
+            this.btnSubChildren.Text = "-";
+            this.btnSubChildren.UseVisualStyleBackColor = true;
+            this.btnSubChildren.Click += new System.EventHandler(this.BtnSubChildren_Click);
+            // 
+            // btnSubAdults
+            // 
+            this.btnSubAdults.Location = new System.Drawing.Point(628, 85);
+            this.btnSubAdults.Name = "btnSubAdults";
+            this.btnSubAdults.Size = new System.Drawing.Size(32, 25);
+            this.btnSubAdults.TabIndex = 78;
+            this.btnSubAdults.Text = "-";
+            this.btnSubAdults.UseVisualStyleBackColor = true;
+            this.btnSubAdults.Click += new System.EventHandler(this.BtnSubAdults_Click);
+            // 
             // txtDiscountPayment
             // 
             this.txtDiscountPayment.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -152,6 +187,7 @@
             this.txtDiscountPayment.ReadOnly = true;
             this.txtDiscountPayment.Size = new System.Drawing.Size(150, 25);
             this.txtDiscountPayment.TabIndex = 76;
+            this.txtDiscountPayment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label17
             // 
@@ -190,7 +226,7 @@
             this.txtAdults.Location = new System.Drawing.Point(552, 85);
             this.txtAdults.Multiline = true;
             this.txtAdults.Name = "txtAdults";
-            this.txtAdults.Size = new System.Drawing.Size(150, 25);
+            this.txtAdults.Size = new System.Drawing.Size(70, 25);
             this.txtAdults.TabIndex = 69;
             this.txtAdults.Text = "0";
             this.txtAdults.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -202,7 +238,7 @@
             this.txtChildren.Location = new System.Drawing.Point(552, 116);
             this.txtChildren.Multiline = true;
             this.txtChildren.Name = "txtChildren";
-            this.txtChildren.Size = new System.Drawing.Size(150, 25);
+            this.txtChildren.Size = new System.Drawing.Size(70, 25);
             this.txtChildren.TabIndex = 68;
             this.txtChildren.Text = "0";
             this.txtChildren.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -235,6 +271,7 @@
             this.bttnCancel.TabIndex = 65;
             this.bttnCancel.Text = "C&ancel";
             this.bttnCancel.UseVisualStyleBackColor = true;
+            this.bttnCancel.Click += new System.EventHandler(this.BttnCancel_Click);
             // 
             // bttnReserve
             // 
@@ -324,7 +361,7 @@
             // 
             this.txtDiscountRate.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtDiscountRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDiscountRate.Location = new System.Drawing.Point(553, 175);
+            this.txtDiscountRate.Location = new System.Drawing.Point(553, 176);
             this.txtDiscountRate.Multiline = true;
             this.txtDiscountRate.Name = "txtDiscountRate";
             this.txtDiscountRate.ReadOnly = true;
@@ -362,7 +399,9 @@
             this.txtDaysNumber.ReadOnly = true;
             this.txtDaysNumber.Size = new System.Drawing.Size(210, 25);
             this.txtDaysNumber.TabIndex = 44;
+            this.txtDaysNumber.Text = "0";
             this.txtDaysNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDaysNumber.TextChanged += new System.EventHandler(this.TxtDaysNumber_TextChanged);
             // 
             // Label9
             // 
@@ -505,12 +544,10 @@
             // 
             // TabPage2
             // 
+            this.TabPage2.Controls.Add(this.dgvReservationList);
             this.TabPage2.Controls.Add(this.bttnCheckin);
             this.TabPage2.Controls.Add(this.bttnCancelReserve);
-            this.TabPage2.Controls.Add(this.dtOut);
-            this.TabPage2.Controls.Add(this.dtIn);
             this.TabPage2.Controls.Add(this.Label16);
-            this.TabPage2.Controls.Add(this.lvlreserve);
             this.TabPage2.Location = new System.Drawing.Point(4, 22);
             this.TabPage2.Name = "TabPage2";
             this.TabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -537,24 +574,6 @@
             this.bttnCancelReserve.Text = "Cancel &Reservation";
             this.bttnCancelReserve.UseVisualStyleBackColor = true;
             // 
-            // dtOut
-            // 
-            this.dtOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtOut.Location = new System.Drawing.Point(115, 334);
-            this.dtOut.Name = "dtOut";
-            this.dtOut.Size = new System.Drawing.Size(104, 20);
-            this.dtOut.TabIndex = 39;
-            this.dtOut.Visible = false;
-            // 
-            // dtIn
-            // 
-            this.dtIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtIn.Location = new System.Drawing.Point(15, 334);
-            this.dtIn.Name = "dtIn";
-            this.dtIn.Size = new System.Drawing.Size(94, 20);
-            this.dtIn.TabIndex = 38;
-            this.dtIn.Visible = false;
-            // 
             // Label16
             // 
             this.Label16.AutoEllipsis = true;
@@ -566,106 +585,13 @@
             this.Label16.TabIndex = 37;
             this.Label16.Text = "Reservation List";
             // 
-            // lvlreserve
+            // dgvReservationList
             // 
-            this.lvlreserve.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ColumnHeader1,
-            this.ColumnHeader2,
-            this.ColumnHeader3,
-            this.ColumnHeader4,
-            this.ColumnHeader5,
-            this.ColumnHeader6,
-            this.ColumnHeader7,
-            this.ColumnHeader8,
-            this.ColumnHeader9,
-            this.ColumnHeader10,
-            this.ColumnHeader11,
-            this.ColumnHeader12});
-            this.lvlreserve.FullRowSelect = true;
-            this.lvlreserve.GridLines = true;
-            this.lvlreserve.Location = new System.Drawing.Point(12, 51);
-            this.lvlreserve.Name = "lvlreserve";
-            this.lvlreserve.Size = new System.Drawing.Size(712, 270);
-            this.lvlreserve.TabIndex = 0;
-            this.lvlreserve.UseCompatibleStateImageBehavior = false;
-            this.lvlreserve.View = System.Windows.Forms.View.Details;
-            // 
-            // ColumnHeader1
-            // 
-            this.ColumnHeader1.Text = "TransID";
-            this.ColumnHeader1.Width = 100;
-            // 
-            // ColumnHeader2
-            // 
-            this.ColumnHeader2.Text = "Guest Name";
-            this.ColumnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColumnHeader2.Width = 200;
-            // 
-            // ColumnHeader3
-            // 
-            this.ColumnHeader3.Text = "Room #";
-            this.ColumnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ColumnHeader4
-            // 
-            this.ColumnHeader4.DisplayIndex = 4;
-            this.ColumnHeader4.Text = "Checkin Date";
-            this.ColumnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColumnHeader4.Width = 100;
-            // 
-            // ColumnHeader5
-            // 
-            this.ColumnHeader5.DisplayIndex = 5;
-            this.ColumnHeader5.Text = "Checkout Date";
-            this.ColumnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColumnHeader5.Width = 100;
-            // 
-            // ColumnHeader6
-            // 
-            this.ColumnHeader6.DisplayIndex = 6;
-            this.ColumnHeader6.Text = "No. of Days";
-            this.ColumnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColumnHeader6.Width = 80;
-            // 
-            // ColumnHeader7
-            // 
-            this.ColumnHeader7.DisplayIndex = 7;
-            this.ColumnHeader7.Text = "Children";
-            this.ColumnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ColumnHeader8
-            // 
-            this.ColumnHeader8.DisplayIndex = 8;
-            this.ColumnHeader8.Text = "Adults";
-            this.ColumnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ColumnHeader9
-            // 
-            this.ColumnHeader9.DisplayIndex = 9;
-            this.ColumnHeader9.Text = "Advance Payment";
-            this.ColumnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColumnHeader9.Width = 120;
-            // 
-            // ColumnHeader10
-            // 
-            this.ColumnHeader10.DisplayIndex = 10;
-            this.ColumnHeader10.Text = "Discount";
-            this.ColumnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColumnHeader10.Width = 80;
-            // 
-            // ColumnHeader11
-            // 
-            this.ColumnHeader11.DisplayIndex = 11;
-            this.ColumnHeader11.Text = "Total";
-            this.ColumnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColumnHeader11.Width = 80;
-            // 
-            // ColumnHeader12
-            // 
-            this.ColumnHeader12.DisplayIndex = 3;
-            this.ColumnHeader12.Text = "Reservation Date";
-            this.ColumnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ColumnHeader12.Width = 100;
+            this.dgvReservationList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReservationList.Location = new System.Drawing.Point(15, 51);
+            this.dgvReservationList.Name = "dgvReservationList";
+            this.dgvReservationList.Size = new System.Drawing.Size(708, 273);
+            this.dgvReservationList.TabIndex = 42;
             // 
             // frmReserve
             // 
@@ -681,6 +607,7 @@
             this.TabPage1.PerformLayout();
             this.TabPage2.ResumeLayout(false);
             this.TabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReservationList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -724,23 +651,13 @@
         internal System.Windows.Forms.TabPage TabPage2;
         internal System.Windows.Forms.Button bttnCheckin;
         internal System.Windows.Forms.Button bttnCancelReserve;
-        internal System.Windows.Forms.DateTimePicker dtOut;
-        internal System.Windows.Forms.DateTimePicker dtIn;
         internal System.Windows.Forms.Label Label16;
-        internal System.Windows.Forms.ListView lvlreserve;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader1;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader2;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader3;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader4;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader5;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader6;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader7;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader8;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader9;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader10;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader11;
-        internal System.Windows.Forms.ColumnHeader ColumnHeader12;
         internal System.Windows.Forms.TextBox txtDiscountPayment;
         internal System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button btnAddChildren;
+        private System.Windows.Forms.Button btnAddAdults;
+        private System.Windows.Forms.Button btnSubChildren;
+        private System.Windows.Forms.Button btnSubAdults;
+        private System.Windows.Forms.DataGridView dgvReservationList;
     }
 }
